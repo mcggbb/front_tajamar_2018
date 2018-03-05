@@ -1,0 +1,57 @@
+footer p {
+    color: red;
+}
+
+main > p {
+    color: blueviolet;
+}
+
+[name="p1"] {
+    margin: 50px;
+}
+
+p.intro:first-line {
+    font-weight: bold;
+    font-size: 200%;
+}
+
+p.intro:first-letter {
+    font-size: 300%;
+}
+
+/* unvisited link */
+a:link {
+    color: red;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+    background-color: aqua;
+    font-size: 200%;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+/* aplicar antes o después del elemento */
+footer::after {
+    width: 50px;
+    height: 60px;
+    content: url(../imagenes/sanmiguel.jpg); 
+    
+    
+}
+
+img::before {
+    
+}

@@ -1,3 +1,7 @@
+ul {
+    list-style-type: square;
+}
+
 footer p {
     color: red;
 }
@@ -35,7 +39,7 @@ a:visited {
 a:hover {
     color: hotpink;
     background-color: aqua;
-    font-size: 200%;
+    font-size: 120%;
 }
 
 /* selected link */

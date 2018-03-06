@@ -44,14 +44,10 @@ a:active {
 }
 
 /* aplicar antes o después del elemento */
-footer::after {
+footer::before {
+    content: url(../imagenes/sanmiguel.jpg); 
     width: 50px;
     height: 60px;
-    content: url(../imagenes/sanmiguel.jpg); 
-    
-    
 }
 
-img::before {
-    
-}
+/* Cambios hechos a las 06/03/2018 13:11 */

@@ -2,6 +2,8 @@
 console.log("esto es hola mundo");
 var cadena = "San Miguel, donde va triunfa";
 
-function avisos (){
-    return document.getElementById("mensaje").value = cadena;
+function avisos() {
+    var elemento = document.getElementById("mensaje").innerHTML = cadena;
+    return elemento;
 }
+

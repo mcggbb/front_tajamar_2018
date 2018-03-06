@@ -1,5 +1,25 @@
+/* @import url("../estilos/reset.css"); /* Using a url */
+@import url("../estilos/normalize.css"); /* Using a url */
+
+html {
+    /* Referencia de medida es el rem */
+    font-size: 1.5rem;
+}
+
+body {
+    font-family: 'Libre Baskerville', serif, 'Roboto', sans-serif;
+}
+
 ul {
     list-style-type: square;
+}
+
+blockquote {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 footer p {
@@ -40,6 +60,7 @@ a:hover {
     color: hotpink;
     background-color: aqua;
     font-size: 120%;
+    font-weight: bold;
 }
 
 /* selected link */

@@ -1,13 +1,100 @@
-/* @import url("../estilos/reset.css"); /* Using a url */
-@import url("../estilos/normalize.css"); /* Using a url */
+/* @import url("../estilos/reset.css"); */ /* Using a url */
+/* @import url("../estilos/normalize.css"); */ /* Using a url */
+
+
+*, *::before, *::after, *:before, *:after {
+    box-sizing : border-box;
+}
+
+/************************** bloques o Container **********************/
+.container {
+    width: 90%;
+    max-width: 1000;
+    min-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.bloque {
+    height: 20em;
+    width: 33%;
+    padding: 1rem;
+    background-color: lightgrey;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.figure {
+    width: 24%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+img {
+    float: left;
+    height: 15em;
+    width: 100%;
+
+}
+
+/************************** menu de navegación***********************/
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111111;
+}
+/************************** fin menu de navegación ******************************/
+
+/************************** Marcación de una cita ******************************/
+q {
+    display: inline;
+}
+ 
+q:before {
+    content: open-quote;
+}
+ 
+q:after {
+    content: close-quote;
+}
+/************************** fin Marcación de una cita ******************************/
+
+
+/* Título de la página */
+h1 {
+    font-family: Tangerine;
+    font-size: 1.5rem;
+    text-align: center;
+}
+/*  Fin título de la página */
 
 html {
     /* Referencia de medida es el rem */
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 body {
-    font-family: 'Libre Baskerville', serif, 'Roboto', sans-serif;
+    font-family: sans-serif, 'Libre Baskerville', serif, 'Roboto';
 }
 
 ul {
@@ -20,10 +107,6 @@ blockquote {
     margin-bottom: 1em;
     margin-left: 100px;
     margin-right: 100px;
-}
-
-footer p {
-    color: red;
 }
 
 main > p {
@@ -43,6 +126,21 @@ p.intro:first-letter {
     font-size: 300%;
 }
 
+
+/***************************** border en los párrafos ***********************/
+p.sombra {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid black;
+    padding: 2rem 3rem;
+    box-shadow: .5rem .5rem .5rem .5rem dimgrey;
+    border-radius: 20px;
+}
+
+/******************************* Estilos de enlace **************************/
 /* unvisited link */
 a:link {
     color: red;
@@ -67,12 +165,58 @@ a:hover {
 a:active {
     color: blue;
 }
+/************************************** fin **********************************/
 
-/* aplicar antes o después del elemento */
+
+/* Estilos al pie de la página. Aplicar antes o después del elemento */
+footer {
+    /* background: #aaa; */
+    background-color: #333333;
+    color: white;
+    padding: 5px;
+    flex: 1 100%;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
 footer::before {
-    content: url(../imagenes/sanmiguel.jpg); 
+    content: url(); 
     width: 50px;
     height: 60px;
 }
 
-/* Cambios hechos a las 06/03/2018 13:11 */
+/********************************* Tablas ******************************/
+table {
+    width:100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+table tr:nth-child(odd) {
+   background-color:#fff;
+}
+table th {
+    background-color: black;
+    color: white;
+}
+
+tfoot tr td {
+    background-color: lightcoral;
+}
+
+
+
+
+
+
+

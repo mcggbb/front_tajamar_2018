@@ -46,7 +46,6 @@ img {
     float: left;
     height: 15em;
     width: 100%;
-
 }
 
 /************************** menu de navegación***********************/
@@ -74,7 +73,6 @@ nav li a:hover {
     background-color: #111111;
 }
 
-
 /************************** Marcación de una cita ******************************/
 q {
     display: inline;
@@ -88,12 +86,10 @@ q:after {
     content: close-quote;
 }
 
-
-
 /* Título de la página */
 h1 {
     font-family: Tangerine;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: center;
 }
 
@@ -127,6 +123,7 @@ main > p {
     margin: 50px;
 }
 
+/***************************** título principal *****************************/
 p.intro:first-line {
     font-weight: bold;
     font-size: 200%;
@@ -136,36 +133,37 @@ p.intro:first-letter {
     font-size: 300%;
 }
 
-
 /***************************** border en los párrafos ***********************/
 p.sombra {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; 
     border: 1px solid black;
-    padding: 2rem 3rem;
+    padding: 1rem 1.5rem;
     box-shadow: .5rem .5rem .5rem .5rem dimgrey;
     border-radius: 20px;
+    /* background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); */
+    background: linear-gradient(to right,#ca9d4a, #dcf029);
 }
 
 /******************************* Estilos de enlace **************************/
 /* unvisited link */
 a:link {
-    color: red;
+    color: #b8aeae;
     text-decoration: none;
 }
 
 /* visited link */
 a:visited {
-    color: green;
+    color: #556155;
     text-decoration: none;
 }
 
 /* mouse over link */
 a:hover {
-    color: hotpink;
+    color: rgb(204, 199, 202);
     background-color: aqua;
     font-size: 120%;
     font-weight: bold;
@@ -173,7 +171,7 @@ a:hover {
 
 /* selected link */
 a:active {
-    color: blue;
+    color: rgb(162, 162, 199);
 }
 /************************************** fin **********************************/
 
@@ -212,7 +210,7 @@ th, td {
 
 table tr:nth-child(even) {
     /* pares */
-    background-color: rgb(168, 164, 164);
+    background-color: #a8a4a4;
 }
 
 table tr:nth-child(odd) {
@@ -221,14 +219,21 @@ table tr:nth-child(odd) {
 }
 
 table th {
-    background-color: black;
+    background-color: #000000;
     color: white;
 }
 
 tfoot tr td {
-    background-color: rgb(21, 103, 128);
+    background-color: #51666d;
     font-weight: bold;
     color: white;
+}
+
+caption {
+    padding: 1rem;
+    background-color: #999999;
+    font-weight: bold;
+  
 }
 
 

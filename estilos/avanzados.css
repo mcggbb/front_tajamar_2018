@@ -15,12 +15,7 @@
     margin-right: auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
-
-    /* width: 300px;
-    height: 300px; */
-    border: 1px solid black;
-    display: -webkit-flex; /* Safari */
-    display: flex;
+    /* border: 1px solid black; */
 }
 
 .bloque {
@@ -30,22 +25,22 @@
     background-color: lightgrey;
     display: inline-block;
     vertical-align: top;
-
-    -webkit-flex: 1;  /* Safari 6.1+ */
-    -ms-flex: 1;  /* IE 10 */    
-    flex: 1;
 }
 
-.figure {
-    width: 24%;
+/*************** imagenes **************************/
+figure {
     margin-left: 0;
     margin-right: 0;
+    display: inline-block;
+    background-color: lightgrey;
+    padding: 1rem;
 }
 
 img {
     float: left;
     height: 15em;
     width: 100%;
+ 
 }
 
 /************************** menu de navegación***********************/
@@ -103,10 +98,6 @@ body {
     font-family: sans-serif, 'Libre Baskerville', serif, 'Roboto';
 }
 
-ul {
-    list-style-type: square;
-}
-
 blockquote {
     display: block;
     margin-top: 1em;
@@ -121,6 +112,10 @@ main > p {
 
 [name="p1"] {
     margin: 50px;
+}
+
+.seccionImagenes {
+    text-align: center;
 }
 
 /***************************** título principal *****************************/
@@ -140,8 +135,8 @@ p.sombra {
     margin-right: auto;
     margin-top: 2rem;
     margin-bottom: 2rem; 
-    border: 1px solid black;
-    padding: 1rem 1.5rem;
+    /* border: 1px solid black; */
+    /* padding: 1rem 1.5rem; */
     box-shadow: .5rem .5rem .5rem .5rem dimgrey;
     border-radius: 20px;
     /* background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet); */
@@ -177,22 +172,12 @@ a:active {
 
 
 /* Estilos al pie de la página. Aplicar antes o después del elemento */
-footer {
-    /* background: #aaa; */
+footer p {
     background-color: #333333;
     color: white;
-    padding: 5px;
-    flex: 1 100%;
-    flex-flow: row wrap;
+    padding: 10px;
     text-align: center;
 }
-
-footer::before {
-    content: url(); 
-    width: 50px;
-    height: 60px;
-}
-
 /********************************* Tablas ******************************/
 table {
     width:100%;

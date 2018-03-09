@@ -1,0 +1,17 @@
+body p:first-child {
+    color: blue;
+}
+
+article p {
+    background-color: black;
+    color: whitesmoke;
+}
+
+img {
+
+
+}
+
+:root { 
+    background: #ddcddc;
+}

@@ -9,17 +9,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ejemplo de html5</title>
     <!-- icon que aparece en la pestaña del navegador -->
-    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="logoCM.png" type="image/x-icon">
     <!-- estilos a aplicar -->
-    <link rel="stylesheet" href="../estilos/avanzados.css">
+    <link rel="stylesheet" href="../lib/estilos/avanzados.css">
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+    <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../lib/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css">
+
 </head>
 
 <body>
     <div class="container">
         <header>
             <h1>
-                <p class="intro sombra">Comunidad de Madrid</p>
+                <span>Comunidad de Madrid</span>
             </h1>
         </header>
 
@@ -46,7 +49,6 @@
             </ul>
         </nav>
 
-
         <main>
             <section>
                 <article class="bloque">
@@ -57,7 +59,7 @@
                                 <a href="http://www.madrid.org" target="_blank">
                                     <abbr title="La Comunidad de Madrid">CM</abbr>
                                 </a>
-                                <img class="imagenNuevaVentana" src="../imagenes/popup.gif" title="Nueva ventana" alt="Nueva ventana">
+                                <i class="fas fa-external-link-square-alt" title="Nueva ventana" alt="Nueva ventana"></i>
                             </em>​</strong>
 
                         una comunidad autónoma de España situada en el centro de la península ibérica y, dentro de esta, en el centro de la Meseta
@@ -92,35 +94,41 @@
                         autónoma uniprovincial, aprobándose en 1983 su Estatuto de Autonomía.
                     </p>
                 </article>
+                <aside>
+                    <video width="400" controls>
+                        <source src="../lib/videos/Madrid_a_beautiful_life.mp4" type="video/mp4">
+                    </video>
+                </aside>
+
             </section>
             <section class="seccionImagenes">
                 <figure>
-                    <img src="../imagenes/Atalaya_de_Torrelodones_2.jpg" alt="La atalaya de Torrelodones" title="La atalaya de Torrelodones">
+                    <img src="../lib/imagenes/Atalaya_de_Torrelodones_2.jpg" alt="La atalaya de Torrelodones" title="La atalaya de Torrelodones">
                     <figcaption>La atalaya de Torrelodones</figcaption>
                 </figure>
                 <figure>
-                    <img src="../imagenes/Buitrago_del_Lozoya_-_04.jpg" alt="Vista de Buitrago del Lozoya" title="Vista de Buitrago del Lozoya">
+                    <img src="../lib/imagenes/Buitrago_del_Lozoya_-_04.jpg" alt="Vista de Buitrago del Lozoya" title="Vista de Buitrago del Lozoya">
                     <figcaption>Vista de Buitrago del Lozoya.</figcaption>
                 </figure>
                 <figure>
-                    <img src="../imagenes/Campaniforme_Ciempozuelos_(M.A.N._Inv.32252)_01.jpg" alt="Vaso campaniforme de Ciempozuelos" title="Vaso campaniforme de Ciempozuelos">
+                    <img src="../lib/imagenes/Campaniforme_Ciempozuelos_(M.A.N._Inv.32252)_01.jpg" alt="Vaso campaniforme de Ciempozuelos" title="Vaso campaniforme de Ciempozuelos">
                     <figcaption> Vaso campaniforme de Ciempozuelos.</figcaption>
                 </figure>
                 <figure>
-                    <img src="../imagenes/Castillo_de_Manzanares_el_Real_01.jpg" alt="castillo de la Casa de Mendoza" title="castillo de la Casa de Mendoza">
+                    <img src="../lib/imagenes/Castillo_de_Manzanares_el_Real_01.jpg" alt="castillo de la Casa de Mendoza" title="castillo de la Casa de Mendoza">
                     <figcaption>Castillo de la Casa de Mendoza</figcaption>
                 </figure>
                 <figure>
-                    <img src="../imagenes/Pico_de_La_Maliciosa_(2.227_m).jpg" alt="Pico_de_La_Maliciosa_(2.227_m)" title="Pico de La Maliciosa (2.227_m)">
-                    <figcaption>Pico_de_La_Maliciosa_(2.227_m)</figcaption>
+                    <img src="../lib/imagenes/Pico_de_La_Maliciosa_(2.227_m).jpg" alt="Pico de La_Maliciosa (2.227_m)" title="Pico de La Maliciosa (2.227_m)">
+                    <figcaption>Pico de La Maliciosa (2.227_m)</figcaption>
                 </figure>
                 <figure>
-                    <img src="../imagenes/Mapa_comarcal_de_la_Comunidad_de_Madrid.svg.png" alt="Mapa_comarcal_de_la_Comunidad_de_Madrid" title="Mapa comarcal de la Comunidad de Madrid">
+                    <img src="../lib/imagenes/Mapa_comarcal_de_la_Comunidad_de_Madrid.svg.png" alt="Mapa_comarcal_de_la_Comunidad_de_Madrid"
+                        title="Mapa comarcal de la Comunidad de Madrid">
                     <figcaption>Mapa comarcal de la
                         <abbr title="Comunidad de Madrid">CM</abbr>
                     </figcaption>
                 </figure>
-
             </section>
 
             <section>
@@ -174,7 +182,8 @@
             </section>
 
             <footer>
-                <p>&copy; 2018 Monday Times. Reservado derechos de autor San Miguel</p>
+                <p>
+                    <i class="far fa-copyright"></i> 2018 Monday Times. Reservado derechos de autor San Miguel</p>
             </footer>
 
         </main>

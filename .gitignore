@@ -32,9 +32,12 @@ bower_components
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
+# Los siguientes directorios no subiran github
 # Dependency directories
 node_modules/
 jspm_packages/
+font-awesome/
+fontawesome-free-5.0.8/
 
 # Typescript v1 declaration files
 typings/

@@ -19,12 +19,12 @@
 }
 
 .bloque {
-    height: 20em;
-    width: 33%;
+   /*  height: 20em;
+    width: 33%; */
     padding: 1rem;
     background-color: lightgrey;
     display: inline-block;
-    vertical-align: top;
+   /*  vertical-align: top; */
 }
 
 /*************** imagenes **************************/
@@ -128,7 +128,6 @@ p.intro:first-letter {
     font-size: 300%;
 }
 
-/***************************** border en los párrafos ***********************/
 p.sombra {
     width: 60%;
     margin-left: auto;
@@ -178,6 +177,7 @@ footer p {
     padding: 10px;
     text-align: center;
 }
+
 /********************************* Tablas ******************************/
 table {
     width:100%;
@@ -220,10 +220,4 @@ caption {
     font-weight: bold;
   
 }
-
-
-
-
-
-
 

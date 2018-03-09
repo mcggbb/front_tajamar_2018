@@ -21,10 +21,11 @@
 .bloque {
    /*  height: 20em;
     width: 33%; */
+    width: 33%;
     padding: 1rem;
     background-color: lightgrey;
     display: inline-block;
-   /*  vertical-align: top; */
+    vertical-align: top;
 }
 
 /*************** imagenes **************************/
@@ -37,10 +38,15 @@ figure {
 }
 
 img {
-    float: left;
+    /* float: left; */
     height: 15em;
-    width: 100%;
- 
+    width: 15em;
+    /* width: 100%; */
+}
+
+.imagenNuevaVentana {
+    height: 15px;
+    width: 15px;
 }
 
 /************************** menu de navegación***********************/
@@ -69,7 +75,7 @@ nav li a:hover {
 }
 
 /************************** Marcación de una cita ******************************/
-q {
+/* q {
     display: inline;
 }
  
@@ -79,7 +85,7 @@ q:before {
  
 q:after {
     content: close-quote;
-}
+} */
 
 /* Título de la página */
 h1 {
@@ -96,6 +102,7 @@ html {
 
 body {
     font-family: sans-serif, 'Libre Baskerville', serif, 'Roboto';
+    background: rgb(173, 169, 141);
 }
 
 blockquote {

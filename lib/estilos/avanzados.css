@@ -50,7 +50,7 @@ img {
 
 /************************** menu de navegación***********************/
 nav ul {
-    list-style-type: none;
+    list-style-type: none; /* eliminamos lo marcadores de la lista */
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -58,7 +58,7 @@ nav ul {
 }
 
 nav li {
-    float: left;
+    float: left; /* Si el men */
 }
 
 nav li a {
@@ -199,7 +199,7 @@ footer p {
 
 /********************************* Tablas ******************************/
 table {
-    width:100%;
+    width:50%;
 }
 
 table, th, td {
@@ -242,7 +242,7 @@ caption {
 
 /******************************* videos ****************************/
 aside video {
-    width: 50%;
-    height: auto;
+    width: 420px;
+    height: 340px;
 }
 

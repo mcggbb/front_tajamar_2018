@@ -1,0 +1,142 @@
+/* @import url("../estilos/reset.css"); */ /* Using a url */
+/* @import url("../estilos/normalize.css"); */ /* Using a url */
+
+*,
+*::before,
+*::after,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+/******************** Contenedor ****************************/
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    color:#aaaaaa;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000;
+    min-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    min-height: 100vh; /* Controla el tamaño del dispositivo a mostrar - viewport height*/
+}
+
+/************************ header ***************************/
+header {
+    background-color: #4d4848;
+    padding: 15px;
+    text-align: center;
+}
+
+/******************* Menu, main, aside ***************************/
+.menu {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+.menu a {
+    background-color: #e5e5e5;
+    padding: 8px;
+    margin-top: 7px;
+    display: block;
+    width: 100%;
+    color: black;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: rgb(136, 120, 129);
+    background-color: transparent;
+    font-weight: bold;
+}
+
+main {
+    overflow: auto;
+}
+
+.main {
+    float: left;
+    width: 60%;
+    padding: 0 20px;
+}
+
+.right {
+    background-color: #e5e5e5;
+    float: left;
+    width: 20%;
+    padding: 15px;
+    margin-top: 7px;
+    text-align: center;
+}
+
+@media only screen and (max-width:620px) {
+    /* Para teléfonos móviles */
+    .menu,
+    .main,
+    .right {
+        width: 100%;
+    }
+}
+
+/********************************* Footer ****************************/
+footer {
+    background-color:#e5e5e5;
+    text-align:center;
+    padding:10px;
+    margin-top:7px;
+}
+
+/********************************* Tablas ******************************/
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+
+table tr:nth-child(even) {
+    /* pares */
+    background-color: #f7f4f402;
+}
+
+table tr:nth-child(odd) {
+    /* impares */
+   background-color:#fff;
+}
+
+table th {
+    background-color: #000000;
+    color: white;
+}
+
+tfoot tr td {
+    background-color: #51666d;
+    /* font-weight: bold; */
+    color: white;
+}
+
+caption {
+    padding: 1rem;
+    background-color: #999999;
+    /* font-weight: bold; */
+    color: white;
+}
+
+/*********************** imagenes ***************************/
+figure {
+    display: inline-block;
+}

@@ -50,18 +50,18 @@ img {
 
 /************************** menu de navegación***********************/
 nav ul {
-    list-style-type: none; /* eliminamos lo marcadores de la lista */
+    list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333333;
 }
 
-nav li {
-    float: left; /* Si el men */
+nav ul li {
+    float: left;
 }
 
-nav li a {
+nav ul li a {
     display: block;
     color: white;
     text-align: center;
@@ -69,7 +69,7 @@ nav li a {
     text-decoration: none;
 }
 
-nav li a:hover {
+nav ul li a:hover {
     background-color: #111111;
 }
 
@@ -177,8 +177,8 @@ a:visited {
 /* mouse over link */
 a:hover {
     color: rgb(204, 199, 202);
-    background-color: aqua;
-    font-size: 120%;
+    background-color: transparent;
+   /*  font-size: 120%; */
     font-weight: bold;
 }
 

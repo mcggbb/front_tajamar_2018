@@ -13,7 +13,8 @@
 /******************** Contenedor ****************************/
 body {
     font-family:Arial, Helvetica, sans-serif;
-    color:#aaaaaa;
+    /* color:#9e9999; */
+    background-color: #d4d3d3;
 }
 
 .container {
@@ -29,19 +30,36 @@ body {
 
 /************************ header ***************************/
 header {
-    background-color: #4d4848;
+    background-color: #fff;
     padding: 15px;
     text-align: center;
 }
 
+h1 {
+    width: 100%;
+    height: 100px;
+    background: #fff url("../imagenes/banner-comunidad-de-madrid.jpg") no-repeat center;
+}
+
+h1 span {
+    display: none;
+}
+
 /******************* Menu, main, aside ***************************/
-.menu {
+
+nav {
     float: left;
     width: 20%;
     text-align: center;
 }
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  
+}
 
-.menu a {
+nav a {
     background-color: #e5e5e5;
     padding: 8px;
     margin-top: 7px;
@@ -51,23 +69,21 @@ header {
     text-decoration: none;
 }
 
-.menu a:hover {
-    color: rgb(136, 120, 129);
-    background-color: transparent;
+nav a:hover {
+    /*  color: rgb(136, 120, 129); */
+    background-color: #555;
+    color: white;
+    /* background-color: transparent; */
     font-weight: bold;
 }
 
 main {
-    overflow: auto;
-}
-
-.main {
     float: left;
     width: 60%;
     padding: 0 20px;
 }
 
-.right {
+aside {
     background-color: #e5e5e5;
     float: left;
     width: 20%;
@@ -76,11 +92,16 @@ main {
     text-align: center;
 }
 
+/* página web receptiva debería verse bien en pantallas de escritorio grandes y teléfonos móviles pequeños. */
+.web_receptiva {
+    overflow: auto;
+}
+
 @media only screen and (max-width:620px) {
     /* Para teléfonos móviles */
-    .menu,
-    .main,
-    .right {
+    nav,
+    main,
+    aside {
         width: 100%;
     }
 }

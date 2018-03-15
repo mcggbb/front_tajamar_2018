@@ -2,7 +2,8 @@
 /* saludar(); */
 
 function otroSaludo(){
-    console.log ("Hola amigo");    
+    console.log ("Hola2 amigo");
+    console.dir ("Hola2 amigo2");
 }
 otroSaludo();
 

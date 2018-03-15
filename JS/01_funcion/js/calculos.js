@@ -1,18 +1,47 @@
 "use strict"; //Sistema obliga que la semántica a respetar el lenguaje
 
-function sumar(a, b) {//con argumentos
-    var c;
-    c = a + b;
-    console.log("El resultado: ", c);
-    return c;
+function calcularCircunferencia(radio) {
+    return 2 * Math.PI * radio;
 }
 
-sumar(1110, 20);
+function mostrarCalcularCircunferencia(radio) {
+    let circunferencia = calcularCircunferencia(radio);
+    console.log(`
+    la circunferencia de radio ${radio}
+    tiene de longitud ${circunferencia}`);
+ }
 
-//
-function resta(a, b) {
-    var z = a - b;
-    console.log("El resultado: ", z);
-    return z;
-}
-resta(1110, 20);
+//mostrarCalcularCircunferencia(5);
+
+let nombre = "Pepe";
+let edad = 23;
+let isCasado = false;
+let algo = undefined;
+
+const user = {
+    nombre: "Pepe",
+    apellido: "Perez",
+    direccion: {
+        calle: "planeta marte",
+        ciudad: "Parla",
+        c_postal: 28983
+    },
+    edad: 23,
+    isCasado: false,
+    algo: undefined
+};
+
+//console.log(user);
+
+user.cargo = 22;
+user.nombre = "San Miguel"
+
+//console.log(user);
+
+let arrayDatos = [12, "Pepe", true, null, undefined];
+console.log(arrayDatos[1]);
+
+arrayDatos [15] = 300;
+console.log(arrayDatos);
+
+

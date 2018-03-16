@@ -9,7 +9,7 @@ function mostrarCalcularCircunferencia(radio) {
     console.log(`
     la circunferencia de radio ${radio}
     tiene de longitud ${circunferencia}`);
- }
+}
 
 //mostrarCalcularCircunferencia(5);
 
@@ -31,17 +31,17 @@ const user = {
     algo: undefined
 };
 
-//console.log(user);
+if (user.direccion.calle==="planeta marte") {
+    console.log("hola planeta marte");
+}
+else {
+    if (user.isCasado === false) {
+        console.log("no es casado");
+    }
+    /* else {
+        console.log ("es 3");
+    } */
 
-user.cargo = 22;
-user.nombre = "San Miguel"
-
-//console.log(user);
-
-let arrayDatos = [12, "Pepe", true, null, undefined];
-console.log(arrayDatos[1]);
-
-arrayDatos [15] = 300;
-console.log(arrayDatos);
+}
 
 

@@ -1,17 +1,17 @@
 "use strict"; //Sistema obliga que la semántica a respetar el lenguaje
 
-/* function validateDecimal(valor) {
+function validateDecimal(valor) {
     var RE = /^\d*\.\d*$/;
     if (RE.test(valor)) {
         return true;
     } else {
         return false;
     }
-} */
-
-function validateDecimal(valor) {
-    return (valor % 1) ? false : true;
 }
+
+/* function validateDecimal(valor) {
+    return (valor % 1) ? false : true;
+} */
 
 
 /* Comprueba si el número que le pasamos es par o impar o no es un número */
@@ -35,6 +35,6 @@ function mostrarEsPar(n) {
 
 mostrarEsPar("a");
 mostrarEsPar(2);
-mostrarEsPar(111); 
-mostrarEsPar(111.2);
+mostrarEsPar(111);
+mostrarEsPar(111.);
 

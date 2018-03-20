@@ -25,7 +25,11 @@ MostrarCalculo(n, function() {
 setTimeout(
     function () {
         console.log(calcularCubo(n))
-    }, 3000)
-for (let i = 0; i < 1000; i++) {
+    }, 3000);
+/* for (let i = 0; i < 1000; i++) {
     console.log(i);
-}
+} */
+
+
+
+

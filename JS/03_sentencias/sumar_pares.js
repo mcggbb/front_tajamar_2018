@@ -17,7 +17,7 @@ function isPar(n) {
     return r
 }
 
-function sumarPares (aDatos) {
+function sumarPares(aDatos) {
 
     let total = 0
     for (let i = 0; i < aDatos.length; i++) {
@@ -31,7 +31,7 @@ function sumarPares (aDatos) {
 
 function verSumaPares(aDatos) {
     console.log('El resultado de la suma de los pares es ',
-                    sumarPares(aDatos))
+        sumarPares(aDatos))
 }
 
 let aDatos = [23, 54, 65, 34, 78, 67, 57, 89]

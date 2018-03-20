@@ -7,6 +7,7 @@ function calcularFactorial (n) {
     else if (n <= 0) {throw 3}
     else {
         let r = 1
+        //for (let i = 1; i <= n; i++) {
         for (let i = n; i >=1; i--) {
             r *= i;
         }

@@ -2,7 +2,6 @@
 
 let frase = {
     titulo: 'No subas abuson',
-    isPalindromo: true,
     isRespuesta: ['No es un palíndromo', 'Es un palíndromo'],
 
     comprobarPalindromo: function () {

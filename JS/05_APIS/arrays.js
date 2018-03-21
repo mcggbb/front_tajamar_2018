@@ -24,10 +24,13 @@ function nif(dni) {
     }
 }
 
-let letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+const letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
 let newArray = letra.split("");
+let element = [];
 for (let index = 0; index < newArray.length; index++) {
-    const element = newArray[index];
+    element = newArray[index];
     console.log(element + " " + index);
 }
+//console.log(element.sort());
+//console.log(letra.slice(0,letra.length));
 

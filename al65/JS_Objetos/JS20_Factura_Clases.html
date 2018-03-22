@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Objeto Factura - JavaScript_005</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="javascript_005.css">
+	<script type="text/javascript">
+	
+	// Definición de la Función Constructora de la Pseudoclase Cliente
+		function Cliente(nombre, direccion, telefono, nif) {
+			this.nombre = nombre;
+			this.direccion = direccion;
+			this.telefono = telefono;
+			this.nif = nif;
+		}
+	// Definición de la Función Constructora de la Pseudoclase Elemento
+		function Elemento(descripcion, cantidad, precio) {
+			this.descripcion = descripcion;
+			this.cantidad = cantidad;
+			this.precio = precio;
+		}
+	// Definición de la Función Constructora de la Pseudoclase Factura
+		function Factura(cliente, elementos) {
+			this.cliente = cliente;
+			this.elementos = elementos;
+			this.informacion = {
+				baseImponible: 0,
+				iva: 16,
+				total: 0,
+				formaPago: "contado"
+			};
+		}
+	// La información de la empresa que emite la factura se
+	// añade al prototype porque se supone que no cambia
+		Factura.prototype.empresa = {
+			nombre: "Nombre de la empresa",
+			direccion: "Direccion de la empresa",
+			telefono: "900900900",
+			nif: "XXXXXXXX"
+		};
+	// Métodos añadidos al prototype de la Factura
+	// Métodos de cálculo del total y de visualización del total
+
+		Factura.prototype.calculaTotal = function() {
+			for (var i = 0; i < this.elementos.length; i++) {
+				this.informacion.baseImponible += this.elementos[i].cantidad * this.elementos[i].precio;
+			}
+			this.informacion.total = this.informacion.baseImponible * this.informacion.iva;
+		};
+			
+		Factura.prototype.muestraTotal = function() {
+			this.calculaTotal();
+			document.write(this.empresa.nombre+"<br>")
+			document.write("TOTAL = " + this.informacion.total + " euros");
+		};	
+	
+		// Creación del objeto Factura
+			
+		var datosCliente = new Cliente (
+			"Nombre del cliente",  // nombre:
+			"Dirección del cliente", // direccion
+			"600600600", //telefono
+			"XXXXXXXXX"	// nif
+		);
+			 
+		var listaElementos = [// cada constructor Elementos recibe  descripcion, cantidad, precio:
+			new Elemento ("Producto 1", 120, 4),
+			new Elemento ("Producto 2", 0, 0 ),
+			new Elemento ("Producto 3", 0, 0 )
+			];
+
+		var factura_1 = new Factura (datosCliente, listaElementos);
+		factura_1.muestraTotal();
+	</script>
+</head>
+<body>
+</body>
+</html>

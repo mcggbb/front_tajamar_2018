@@ -1,0 +1,46 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Comparacion - OOP_JS_001</title>
+	<meta name="description" content="Ejercicios del Curso ASI">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+  	<link rel="stylesheet" href="default.css">
+</head>
+
+ <body>
+  
+  	<header>
+  		<h1>Ejemplos de objetos</h1>
+          <p>Literales frente a constructores</p>
+	</header>
+	<article>
+		<script>
+            var aLiteral = [1, 2, 3, 4];
+            var aContructor = new Array(1, 2, 3, 4);
+            console.log(aLiteral);
+            console.log(aContructor);
+            console.dir(aLiteral);
+            console.dir(aContructor);
+
+            var oLiteral = {"nombre" : "Pepe", "edad" : 43}
+            var oContructor = new Object()
+            oContructor.nombre = "Pepe"
+            oContructor.edad = 43
+            console.log(oLiteral);
+            console.log(oContructor);
+            console.dir(oLiteral);
+            console.dir(oContructor);
+        </script>
+
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

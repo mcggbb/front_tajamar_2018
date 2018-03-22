@@ -1,8 +1,8 @@
 'user stric'
 
-function calcularFactorial (n) {
+function calcularFactorial(n) {
     let r = 1
-    for (let i = n; i >=1; i--) {
+    for (let i = n; i >= 1; i--) {
         r *= i;
     }
     /* for (let i = 1; i <=n ; i++) {
@@ -24,9 +24,8 @@ console.log(calcularFactorial ('Pepe'))
 console.log(calcularFactorial ())  */
 
 
-  function mostrarFactorial (n) {
-  let mensaje = `El factorial de ${n} es ` 
-                    + calcularFactorial(n) 
+function mostrarFactorial(n) {
+    let mensaje = `El factorial de ${n} es ` + calcularFactorial(n)
     console.log(mensaje)
 
     /* console.log(`El factorial de ${n} es ${calcularFactorial(n)}`) */

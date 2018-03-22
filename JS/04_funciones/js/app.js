@@ -1,7 +1,7 @@
 "use strict"; //Sistema obliga que la semántica a respetar el lenguaje
 
 // Invocación de la función
-mostrar('Pepe')
+//mostrar('Pepe')
 
 // Declaración de la funcion
 // Hiting de funciones
@@ -17,5 +17,22 @@ let mostrarVariable = function (n) {
 }
 
 // Invocación de la función
+//mostrarVariable('Juan');
 
-typeofmostrarVariable('Juan')
+function myFunction() {
+    let y = "4";
+    try {
+        let x = y;
+        if (x == "") throw "empty";
+        if (isNaN(x)) throw "not a number";
+        if (x > 10) throw "too high";
+        if (x < 5) throw "too low";
+    }
+    catch (err) {
+        console.log("Error: " + err + ".");
+    }
+}
+//myFunction();
+
+
+

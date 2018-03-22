@@ -1,7 +1,7 @@
 "use strict"; //Sistema obliga que la semántica a respetar el lenguaje
 
 // Invocación de la función
-mostrar('Pepe')
+//mostrar('Pepe')
 
 // Declaración de la funcion
 // Hiting de funciones
@@ -17,7 +17,7 @@ let mostrarVariable = function (n) {
 }
 
 // Invocación de la función
-mostrarVariable('Juan');
+//mostrarVariable('Juan');
 
 function myFunction() {
     let y = "4";
@@ -32,6 +32,22 @@ function myFunction() {
         console.log("Error: " + err + ".");
     }
 }
+//myFunction();
 
-myFunction();
+let oPrueba = {
+	precio: 12,
+	iva : 1.16,
+}; 
+
+let calculaIvaAsiync_Arrow = function () {
+    setTimeout(() => {
+        let precioFinal = this.precio * this.iva;
+        console.log(`
+            Usando una arrow function: 
+            El precio final es ${precioFinal}
+        `);
+    }, 1000)
+}
+oPrueba.calculaIvaAsiync_Arrow();
+
 

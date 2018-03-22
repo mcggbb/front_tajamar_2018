@@ -1,0 +1,66 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>OOP - JS</title>
+	<meta name="description" content="Ejercicios del Curso ASI">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+  	<link rel="stylesheet" href="javascript_001.css">
+    <script>
+        function Persona(dni, nombre) {
+            // Propiedades privadas (no accesibles desde las instancias)
+            var edad = 0;
+
+            // Propiedad pública estatica
+            Persona.PLANETA = "Tierra"
+
+            // Propiedades públicas
+            this.dni = dni;
+            this.nombre = nombre;
+
+            // Metodos públicos y privilegiados
+            Persona.prototype.setEdad = function (pEdad) {
+                edad = pEdad;
+            }
+            Persona.prototype.getEdad = function () {
+                console.log(edad);
+                return edad;
+            }
+        }
+
+        // Método público
+
+        Persona.prototype.saludar = function () {
+            console.log(this.nombre + " te saluda")
+        }
+    </script>
+</head>
+
+ <body>
+  
+  	<header>
+  		<h1>Modelo clásico de OOP en JS</h1>
+	</header>
+	<article>
+		<p>Instanciación de personas</p>
+        <script>
+            var yo = new Persona("123", "Pepe");
+            var tu = new Persona("546", "Juan");
+
+            console.dir(yo);
+            console.dir(tu);
+
+            yo.saludar();
+            tu.saludar();
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

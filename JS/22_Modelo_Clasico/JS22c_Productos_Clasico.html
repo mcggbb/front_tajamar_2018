@@ -1,0 +1,109 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Productos - JavaScript_001</title>
+	<meta name="description" content="Ejercicios del Curso CMF">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+    <style>
+        header, footer {
+            margin-left: 2em;
+        }
+        section {
+            width: 50%;
+            margin: 1em auto;
+        }
+        ul {
+            list-style-image: url("bullet_10.jpg");
+        }
+
+            ul li:nth-child(2n+1) {
+                background-color: papayawhip;
+            }
+
+    </style>
+  	<script>
+
+        // Función constructura
+
+        function Articulo(nombre, cod, precio, desc, ivaTipo) {
+            // atributos "privados"
+			var _nombre = nombre;
+			var _codigo = cod;
+			var _valor = precio;
+			var _descuento = (desc || 0);
+			var _ivaBase = (ivaTipo || 0.21)
+
+            // métodos privilegiados
+			this.getNombre = function () { return _nombre; }
+			this.getCodigo = function () { return _codigo; }
+			this.getValor = function () { return _valor; }
+			this.getDescuento = function () { return _descuento; }
+			this.getIVABase = function () { return _ivaBase; }
+
+		} // Fin de la función constructora
+
+		Articulo.prototype.calcIVA = function () {
+		    return Math.round(this.getValor() * this.getIVABase());
+		}; // Fin de la función iva del prototipo
+
+		Articulo.prototype.calcPVP = function () {
+		    var precio = this.calcIVA() + this.getValor();
+		    precio -= (precio * this.getDescuento() / 100);
+		    return Math.round(precio);
+		}; // Fin de la función pvp del prototipo
+
+        Articulo.prototype.printDatos = function () {
+		    document.write("<h3>");
+		    document.write('Artículo: ' + this.getNombre() + " (" + this.getCodigo() + ")");
+		    document.write("</h3>");
+		    document.write("<ul><li>Precio: " + this.getValor() + " €</li>");
+		    document.write("<li>IVA: " + this.calcIVA() + " €</li>");
+		    document.write("<li>Precio venta: " + this.calcPVP() + " € (Dto " + this.getDescuento() + "%)</li></ul><hr>");
+		    console.dir(this);
+		};	//fin de la función printDatos del prototipo
+		
+
+	// -->
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Catálogo de productos</h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+        <section>
+            <script>
+                var item1 = new Articulo("Raton USB", "PerRt-01", 25, 10);
+                var item2 = new Articulo("Raton Inalambrico", "PerRt-03", 45, 15);
+                var item3 = new Articulo("Memoria USB", "PerRt-08", 25);
+                item1.printDatos();
+                item2.printDatos();
+                item3.printDatos();
+            </script>
+        </section>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>
+

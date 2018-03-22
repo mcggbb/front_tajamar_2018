@@ -1,0 +1,204 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Factoriales - JavaScript_008</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+	<script>
+        var cCadena, nCode;
+        // Variable globales para que conserven valores
+        // en las sucesivas llamadas a la función manejaEventos()
+        //
+        // Lo adecuado sería envolver las variables y los manejadores
+        // en un función, como se verá más adelante en el curso
+
+        function manejaEventos(cOpcion) {
+            switch (cOpcion) {
+                case "nuevoTexto":
+                    cCadena = nuevoTexto();
+                    break;
+                case "dividir":
+                    dividir(cCadena);
+                    break;
+                case "validarVariable":                    
+                    validarVariable(cCadena);
+                    break;
+                case "codificar":
+                    nCode = prompt("Numero")
+                    cCadena = codificar(cCadena, nCode);
+                    break;
+                case "decodificar":
+                    cCadena = decodificar(cCadena, nCode);
+                    break;
+                case "esPalindromo":
+                    esPalindromo(cCadena);
+                    break;
+
+            } // Fin del switch
+
+        } // Fin de la función main()
+        
+        function nuevoTexto() {
+            const Q1 = "Introduce un texto (enter: Esto es una cadena)",
+                R_DEF = "Esto es una cadena", // Cadena por defecto  
+                R1 = "El texto elegido es: ";
+
+            //Texto del prompt
+            var cTexto = prompt(Q1) || R_DEF;
+            console.log(R1 + cTexto)
+            return cTexto;
+        }
+        function dividir(cTexto) {
+
+            // Ejemplo de división en 2 partes de una cadena            
+            var cParte1 = cTexto.substring(0, cTexto.length / 2)
+            var cParte2 = cTexto.substring(cTexto.length / 2, cTexto.length);
+            muestraDatos(cParte1, cParte2);
+
+        } // Fin de la función operacion_2()
+
+        function validarVariable(cTexto) {
+            var cNombreVariable = ""
+            // Combrueba el primer caracter
+            // si es un número, antepone un _
+            if (!isNaN(+cTexto[0])) {
+                cNombreVariable = "_"
+            }
+            for (var i = 0, largo = cTexto.length; i < largo; i++) {
+                // commpruebo si el codigo UNICODE esta en el rango
+                // números 48 - 57, letras 65 - 90 y 87 - 122, $ 36 y _ 95
+                if (esVariableValid(cTexto.charCodeAt(i))) {
+                    cNombreVariable += cTexto[i];
+                }
+                // los espacios se sustituyen por guion bajo(_)
+                else if (cTexto[i] == " ") {
+                    cNombreVariable += "_";
+                }
+                // otros códigos, invalidos o no recomendables se descartan     
+            }
+            muestraDatos(cNombreVariable);
+        }
+
+        function esVariableValid(nCharCode) {
+            // commpruebo si el codigo UNICODE esta en el rango
+            // números 48 - 57
+            // letras 65 - 90 y 87 - 122
+            // $ 36
+            // _ 95
+            if ((nCharCode >= 48 && nCharCode <= 57) ||
+                (nCharCode >= 65 && nCharCode <= 90) ||
+                (nCharCode >= 87 && nCharCode <= 122) ||
+                nCharCode == 87 ||
+                nCharCode == 122)
+            { return true }
+            return false
+
+        }
+
+        function codificar(cTexto, code) {
+            var cResult = "";
+            
+            // Ejemplo de codificar una cadena
+            for (var i = 0, largo = cTexto.length; i < largo; i++)
+            {
+                var letraCode = +cTexto.charCodeAt(i) + +code + i
+                cResult += String.fromCharCode(letraCode);
+            }
+            muestraDatos(cResult);
+            return cResult;
+        }
+
+        function decodificar(cTexto, code) {
+            var cResult = "";
+
+            // Ejemplo de codificar una cadena
+            for (var i = 0, largo = cTexto.length; i < largo; i++) {
+                var letraCode = +cTexto.charCodeAt(i) - +code - i
+                cResult += String.fromCharCode(letraCode);
+            }
+            muestraDatos(cResult);
+            return (cResult);
+        }
+
+        function esPalindromo(cTexto) {
+
+            const R_OK = "Es un palíndromo",
+                R_KO = "NO es un palíndromo";
+            // Pasar a minusculas la cadena
+            var cInversa = "",
+                cResult = "";
+            
+            // Pasar cadena a minúsculas
+            cTexto = cTexto.toLowerCase();
+                
+            // Eliminar los espacios en blanco 
+            while (cTexto.search(" ") > 0) {
+                cTexto = cTexto.replace(" ", "");
+            }
+
+            // Recorrer la cadena de atras a delante
+            // para crear una copia en orden inverso
+            for (var i = cTexto.length - 1; i >= 0; i--)
+                cInversa += cTexto[i];
+
+            // Compara las dos cadenas
+            if (cTexto == cInversa) { cResult = R_OK;}
+            else {cResult = R_KO;}
+
+            muestraDatos(cResult);
+        }
+
+        function muestraDatos() {
+            for (var i = 0, max = arguments.length; i < max; i++) {
+                console.log(arguments[i]);
+            }
+
+        }
+                
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Cálculo del factorial de un número
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+
+        <button onclick=manejaEventos("nuevoTexto")>Nuevo Texto</button>
+        <button onclick=manejaEventos("dividir")>Mitades</button>
+        <button onclick=manejaEventos("validarVariable")>Variable</button>
+        <button onclick=manejaEventos("codificar")>Codificar</button>
+        <button onclick=manejaEventos("decodificar")>Decodificar</button>
+        <button onclick=manejaEventos("esPalindromo")>Palindromo</button>
+
+        <h2>Aviso importante</h2>
+		<p>Para ver los resultados hay que mostrar la consola de JS</p>
+        <h2>Ejemplos de palíndromos</h2>
+        <ul>
+            <li>Se van sus naves</li>
+            <li>La ruta nos aporto otro paso natural</li>
+        </ul>
+  	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

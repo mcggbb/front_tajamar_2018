@@ -1,0 +1,102 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>OOP - JS</title>
+	<meta name="description" content="Ejercicios del Curso ASI">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+  	<link rel="stylesheet" href="javascript_001.css">
+    <style>
+        div {
+            width: 25%;
+            float: left;
+            margin-left: 3%;
+        }
+        footer {
+            clear: both;
+        }
+    </style>
+    <script>
+        function main() {
+
+            function crearObjetos(element) {
+                    return { "nombre": element, "edad": parseInt((Math.random() * 4)) + 16 };
+                }
+
+            function deleteMenores(element) {
+                    return +element.edad > 17
+                }
+
+            var aNombres = ["Pepe", "Juan", "Miguel","Raul", "Gabriel", "Daniel"];
+            var aObjetos = aNombres.map(crearObjetos)
+            var aObjetosFiltrados =  aObjetos.filter(deleteMenores)
+
+            document.write("<div>")
+            document.write("<h2>Array original</h2>")
+            muestraArray(aNombres);
+            document.write("</div>")
+
+            document.write("<div>")
+            document.write("<h2>Array de objetos</h2>")
+            muestraArray(aObjetos);
+            document.write("</div>")
+
+            document.write("<div>")
+            document.write("<h2>Array filtrado por edades</h2>")
+            muestraArray(aObjetosFiltrados);
+            document.write("</div>")
+
+        }
+
+        function muestraArray(aArray) {
+            if (typeof aArray[0] == "object") {
+                for (i = 0; i < aArray.length; i++)
+                    muestraDatos(aArray[i]);
+            }
+            else {
+                document.write("<ul>");
+                for (i = 0; i < aArray.length; i++) {
+                    document.write("<li>" + aArray[i] + "</li>")
+                }
+                document.write("</ul>");
+
+            }                 
+         }
+
+         function muestraDatos(oVuelo) {
+             document.write("<ul>");
+             for (var i in oVuelo) {
+                 if (typeof oVuelo[i] === "object") {
+                     document.write("<li>" + i + "<ul>")
+                     for (var j in oVuelo[i]) {
+                         document.write("<li>" + j + " : " + oVuelo[i][j] + "</li>")
+                     }
+                     document.write("</li></ul>")
+                 }
+                 else { document.write("<li>" + i + " : " + oVuelo[i] + "</li>") };
+             }
+             document.write("</ul>");
+         }
+
+    </script>
+</head>
+
+ <body>
+  
+  	<header>
+  		<h1>Array de Objetos</h1>
+	</header>
+	<article>
+		<p>Texto</p>
+        <script>main()</script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

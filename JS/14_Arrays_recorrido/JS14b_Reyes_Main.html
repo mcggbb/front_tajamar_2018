@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Reyes de España - JavaScript_001</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+  	<script>
+        function main() {
+
+            function buscarItem(lista, cad) {
+                // La función devolverá la posición del segundo parámetro en el array correspondiente al primero, 
+                // o -1 en caso de que no lo encuentre
+                var ind, pos;
+                for (ind = 0; ind < lista.length; ind++) {
+                    if (lista[ind].toUpperCase() == cad.toUpperCase())
+                        break;
+                }
+                pos = (ind < lista.length) ? ind : -1;
+
+                /*if (ind < lista.length) pos = ind;
+                /else pos = -1;
+                */
+                return (pos);
+            } // Fin de la función buscarItem
+
+            var listaReyes = new Array('Fernando', 'Isabel', 'Juana', 'Carlos', 'Felipe',
+                    'Luis', 'Jose', "Amadeo", 'Alfonso', 'Juan Carlos');
+
+            var cad = prompt("Escribe un nombre");
+            var pos = buscarItem(listaReyes, cad);
+            // Definimos ambas variable porque luego haremos uso de ellas varias veces
+
+            if (pos >= 0)
+                document.write(cad + ' es el nombre ' + ++pos + ' usado por un rey de España');
+            else
+                document.write(cad + ' no es el nombre de un rey de España.');
+
+        } // Fin de la función main()
+
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	    <h1>Reyes de España
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<script>
+             main()
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

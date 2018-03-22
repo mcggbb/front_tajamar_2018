@@ -1,0 +1,123 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Objeto vuelo - JS</title>
+	<meta name="description" content="Ejercicios de JavaScript">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+    <script>
+        function nuestraVuelo(flight) {
+
+            // document.write(flight_1);
+            // solo mostraria información del tipo creado
+
+
+            //			for(i in flight) {
+            //  				document.write(fiight[i]);
+            //			}
+
+            document.write("<h2>" + flight.airline + "</h2>");
+            document.write("<br>");
+            document.write(flight.number);
+            document.write("<br>");
+            document.write("Departure");
+            document.write("<br>");
+            document.write(flight.departure.IATA);
+            document.write("<br>");
+            document.write(flight.departure.time);
+            document.write("<br>");
+            document.write(flight.departure.city);
+            document.write("<br>");
+            document.write("Arrival");
+            document.write("<br>");
+            document.write(flight.arrival.IATA);
+            document.write("<br>");
+            document.write(flight.arrival.time);
+            document.write("<br>");
+            document.write(flight.arrival.city);
+            document.write("<br>");
+        }
+    </script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Objetos Vuelo
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<script>
+
+   			var flight_1 = new Object ();					
+   			flight_1 ["airline"] = "Oceanic";
+			flight_1 ["number"] = 815;
+			flight_1.departure = new Object ();
+ 			flight_1.departure ["IATA"] = "SYD";
+        	flight_1.departure ["time"] = "2004-09-22 14:55";
+        	flight_1.departure ["city"] = "Sydney";
+    		flight_1.arrival = new Object ();
+    		flight_1.arrival ["IATA"] = "LAX";
+        	flight_1.arrival ["time"] = "2004-09-23 10:42",
+        	flight_1.arrival ["city"] = "Los Angeles";
+
+        	console.dir(flight_1);
+        	nuestraVuelo(flight_1);
+
+   			var flight_2 = new Object ();
+			flight_2.departure = new Object ();
+    		flight_2.arrival = new Object ();
+		
+   			flight_2.airline = "Oceanic";
+			flight_2.number = 815;
+ 			flight_2.departure.IATA = "SYD";
+        	flight_2.departure.time = "2004-09-22 14:55";
+        	flight_2.departure.city = "Sydney";
+    		flight_2.arrival.IATA = "LAX";
+        	flight_2.arrival.time = "2004-09-23 10:42",
+        	flight_2.arrival.city = "Los Angeles";
+
+        	console.dir(flight_2);
+        	nuestraVuelo(flight_2);
+  			
+   			var flight_3 = {
+ 			   airline: "Oceanic",
+			    number: 815,
+ 				 departure: {
+			        IATA: "SYD",
+        			time: "2004-09-22 14:55",
+        			city: "Sydney"
+    				},
+				arrival: {
+        			IATA: "LAX",
+        			time: "2004-09-23 10:42",
+        			city: "Los Angeles"
+    				}
+				};
+			
+   			console.dir(flight_3);
+   			nuestraVuelo(flight_3);
+
+			//-->
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

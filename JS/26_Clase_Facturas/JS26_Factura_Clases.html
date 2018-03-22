@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Prototype Factura - JS</title>
+    <meta charset="UTF-8">
+   	<meta name="description" content="Ejercicios del Curso Web">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="factura.css">
+	<script type="text/javascript">
+	
+		
+		// Definición de la Función Constructora de la Pseudoclase Factura
+		function Factura() {
+			this.cliente = {};
+			this.elementos = [];
+			this.informacion = {
+				baseImponible: 0,
+				iva: 21,
+				total: 0,
+				formaPago: "contado"
+			};
+		
+			// La información de la empresa que emite la factura se
+			// añade al prototype porque se supone que no cambia
+			Factura.prototype.empresa = {
+				nombre: "Ediciones Tuatalug",
+				direccion: "c/ la que sea",
+				telefono: "900900900",
+				nif: "82507182K"
+			};
+			// Definición de la Función Constructora del objeto Cliente
+			Factura.prototype.Cliente = function (nombre, direccion, telefono, nif) {
+				this.nombre = nombre;
+				this.direccion = direccion;
+				this.telefono = telefono;
+				this.nif = nif;
+			}
+
+			// Definición de la Función Constructora del objeto Elemento
+			Factura.prototype.Elemento = function (descripcion, cantidad, precio) {
+				this.descripcion = descripcion;
+				this.cantidad = cantidad;
+				this.precio = precio;
+			}
+	
+			// Métodos añadidos al prototype de la Factura
+			// Métodos de cálculo del total y de visualización del total
+
+			Factura.prototype.calculaTotal = function() {
+				for (var i = 0; i < this.elementos.length; i++) {
+					this.informacion.baseImponible += this.elementos[i].cantidad * this.elementos[i].precio;
+				}
+				this.informacion.total = Math.round(this.informacion.baseImponible * (1 + this.informacion.iva/100));
+			}; // Fin de la función prototype.calculaTotal
+			
+			Factura.prototype.muestraDatos = function (){
+					this.calculaTotal();
+					document.write("<p><b>Datos Empresa</b></p>");
+					document.write("<ul>");
+					document.write("<li>Nombre: " + this.empresa.nombre+"</li>");
+					document.write("<li>Direccion: " + this.empresa.direccion+"</li>");
+					document.write("<li>Telefono: "+ this.empresa.telefono+"</li>");
+					document.write("<li>Nif: "+ this.empresa.nif+"</li>");
+					document.write("</ul>");
+					
+					document.write("<p><b>Datos Cliente</b></p>");
+					document.write("<ul>");
+					document.write("<li>Nombre: " + this.cliente.nombre+"</li>");
+					document.write("<li>Direccion: " + this.cliente.direccion+"</li>");
+					document.write("<li>Telefono: " + this.cliente.telefono+"</li>");
+					document.write("<li>Nif: " + this.cliente.nif+"</li>");
+					document.write("</ul>");
+					
+					document.write("<p><b>Lista de elementos</b></p>");
+					document.write("<ul class=elementos>");
+					document.write("<li class=elementos>Descripcion</li>");
+					document.write("<li class=elementos>Cantidad</li>");
+					document.write("<li class=elementos>Precio</li>");
+					document.write("</ul>");				
+					for(var i=0; i<this.elementos.length; i++){
+						document.write("<ul class=elementos>");
+						document.write("<li class=elementos>" + this.elementos[i].descripcion+"</li>");
+						document.write("<li class=elementos>" + this.elementos[i].cantidad+"</li>");
+						document.write("<li class=elementos>" +  this.elementos[i].precio+"€</li>");
+						document.write("</ul>");		
+					};
+					document.write("<p><b>Total a pagar</b></p>");
+					document.write("<ul>");
+					document.write("<li>Importe Total: " + this.informacion.total+"€</li>");
+					document.write("<li>Iva: "+ this.informacion.iva+"%</li>");
+					document.write("<li>Pago: "+ this.informacion.formaPago+"</li>");
+					document.write("</ul>");
+			}; // Fin de la función prototype.muestraDatos
+		} // Fin de la función constructora Factura
+
+		function crearFactura() {
+
+			// Creación del objeto Factura encapsulada en una función
+				var factura = new Factura ();
+				factura.cliente = new factura.Cliente (
+					"Librería Boracay",  // nombre:
+					"c/ Estrella Polar, 25", // direccion
+					"600600600", //telefono
+					"14357383X"	// nif
+				); 
+				factura.elementos = [// cada constructor Elementos recibe  descripcion, cantidad, precio:
+					new factura.Elemento ("Libro 1", 12, 44),
+					new factura.Elemento ("Libro 2", 10, 25 ),
+					new factura.Elemento ("Libro 3", 7, 50 )
+				];
+				console.dir(factura);
+				return factura;
+			};
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Ediciones Tuatalug</h1>
+	</header>
+	<article>
+		<h2>Factura</h2>
+		<section>
+			<script type="text/javascript">
+				//var factura_1 = crearFactura();
+				//factura_1.muestraDatos();
+				crearFactura().muestraDatos();
+			</script>
+		</section>
+	</article>
+	<aside>
+		<img src="lugh.jpg">
+	</aside>
+</body>
+</html>

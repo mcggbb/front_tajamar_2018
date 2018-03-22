@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Comprobar email - JS</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+	<script>
+
+		function main () {
+
+			function comprobar(cEmail)	{
+				if(cEmail.indexOf("@") >= 1 && 
+					// @ en lugar 2 o mayor
+					cEmail.lastIndexOf(".") > cEmail.indexOf("@")+2 &&
+					// entre la @ y el . al menos 2 
+					cEmail.length > cEmail.lastIndexOf(".") + 2 
+                    // nombre de dominio al menos 2 caracteres
+					) {
+						return true;
+					}
+				return false;	
+			}
+
+		if(comprobar(prompt("Escribe tu email"))){
+			document.write("El email es correcto");}
+		else{
+			document.write("El email no es correcto");}
+
+		}	
+	</script>
+	
+</head>	
+<body>
+	<header>
+		<h1>Validación de un correo</h1>
+	</header>
+	<article>
+		<script>main()</script>
+	</article>	
+</body>
+</html>

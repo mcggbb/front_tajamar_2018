@@ -1,0 +1,43 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Clase Factura - JS</title>
+	<meta name="description" content="Ejercicios del Curso ASI">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+  	<link rel="stylesheet" href="javascript_001.css">
+    <script>
+        function Factura(idFactura, idCliente) {
+            this.idFactura = idFactura;
+            this.idCliente = idCliente;
+        }
+        function main() {
+            var fac1 = new Factura(123, "A55");
+            console.dir(fac1);
+            console.log(fac1 instanceof Object);
+            console.log(fac1 instanceof Factura);
+
+        }
+    </script>
+</head>
+
+ <body>
+  
+  	<header>
+  		<h1>Función constructora Factura</h1>
+	</header>
+	<article>
+		<p>Ejemplo de función constructora que da lugar a un objeto fartura muy simple </p>
+        <script>main()</script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+
+ </body>
+
+</html>

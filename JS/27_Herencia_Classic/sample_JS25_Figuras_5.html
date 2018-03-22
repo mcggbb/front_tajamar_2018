@@ -1,0 +1,105 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>OOP - JS</title>
+	<meta name="description" content="Ejercicios del Curso ASI">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+  	<link rel="stylesheet" href="javascript_001.css">
+    <script>
+
+        // Patroón de "Encadenamiento de prototiposcon constructor temporal"
+        // Cuarta versión del programa, para comprobar como
+        // la herencia puede vincular directamente los prototipos afectados
+        // interponiendo un constructor temporal
+
+
+        function main() {
+            function Figura() {}
+            Figura.prototype.name = 'figura';
+            Figura.prototype.toString = function () {
+                var result = [];
+                if (this.constructor.uber) {
+                    result[result.length] = this.constructor.uber.toString();
+                }
+                result[result.length] = this.name;
+                return result.join(', ');
+            };
+
+            function Figura2D() { }
+            // Implementacion de la herencia directamente entre prototipos
+            // interponiendo un constructor temporal
+            // Necesariamente antes de cualquier modificación del prototipo
+            var F = function () { }
+            F.prototype = Figura.prototype;
+            Figura2D.prototype = new F();
+            Figura2D.prototype.constructor = Figura2D;
+            Figura2D.uber = Figura.prototype;
+            // Agregamos elementos al prototipo
+            Figura2D.prototype.name = 'figura 2D';
+
+
+            function Triangulo(nLado, nAltura) {
+                this.side = nLado;
+                this.height = nAltura;
+            }
+            // Implementacion de la herencia, directamente entre prototipos
+            // interponiendo un constructor temporal
+            // Necesariamente antes de cualquier modificación del prototipo
+            var F = function () { }
+            F.prototype = Figura2D.prototype;
+            Triangulo.prototype = new F();
+            Triangulo.prototype.constructor = Triangulo;
+            Triangulo.uber = Figura2D.prototype;
+            // Agregamos elementos al prototipo
+            Triangulo.prototype.name = 'triángulo';
+            Triangulo.prototype.getArea = function () { return this.side * this.height / 2; };
+
+            // Instanciación y uso de un objeto
+            var t1 = new Triangulo(5, 10);
+
+            // En documen.write, la llamada al objeto
+            // lleva implícita la ejecución del método toString
+            // que en este caso se hereda de la clase padre
+            document.write("El área del " + t1 + " es " + t1.getArea());
+
+            // La salida por consola mediante dir permite observar
+            // la estructura del objeto, revelando la cadena de prototipos
+            console.dir(t1);
+
+            // instanceof también permite comprobar la cadena de herencia
+            console.log(t1 instanceof Triangulo);
+            console.log(t1 instanceof Figura2D);
+            console.log(t1 instanceof Figura);
+            console.log(t1 instanceof Object);
+
+        }
+    </script>
+</head>
+
+ <body>
+  
+  	<header>
+  		<h1>Ejemplo de Herencia</h1>
+	</header>
+	<article>
+		<p>Ejemplo de Hherencia entre tres tipos de objetos</p>
+        <ul>
+            <li>Figura()</li>
+            <li>Figura2D()</li>
+            <li>Triangulo()</li>
+        </ul>
+        <p>
+            <script>main()</script>
+        </p>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

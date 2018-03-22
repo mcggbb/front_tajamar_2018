@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Productos - JavaScript_001</title>
+	<meta name="description" content="Ejercicios del Curso CMF">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  	<link rel="stylesheet" href="css/javascript_001.css">
+  	<script>
+	
+        // Función constructora
+		function Articulo(nombre, cod, precio, desc) {
+			this.nombre = nombre;
+			this.codigo = cod;
+			this.valor = precio;
+			this.descuento = desc;
+			this.iva = function () {return Math.round(this.valor * 0.16);};
+			this.pvp = 	function () {
+				var precio = this.iva() + this.valor;
+				precio = precio - precio * this.descuento / 100;
+				return Math.round(precio);};
+		}
+		// Función independiente
+		function printDatos(item) {
+		    document.write("<h3>");
+		    document.write('Artículo: ' + item.nombre + " (" + item.codigo + ")");
+		    document.write("</h3>");
+			document.write("Precio: " +item.valor + " €<br>");
+			document.write("IVA: " + item.iva() + " €<br>");
+			document.write("Precio venta: "+ item.pvp()+ " € (Dto " + item.descuento + "%)<br>");
+		}
+
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Catálogo de productos - 2
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<script>
+   			//<!--
+			var item1 = new Articulo("Raton USB", "PerRt-01", 25, 10);
+			printDatos(item);
+			var item2 = new Articulo("Raton Inalambrico", "PerRt-03", 45, 15);
+			printDatos(item);
+			//-->
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>
+

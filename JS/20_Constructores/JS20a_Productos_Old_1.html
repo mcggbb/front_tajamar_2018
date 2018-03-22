@@ -1,0 +1,82 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Productos - JavaScript_001</title>
+	<meta name="description" content="Ejercicios del Curso CMF">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  	<link rel="stylesheet" href="css/javascript_001.css">
+  	<script>
+	//<!--
+
+        // Funciones que luego se asignarán a los métodos
+		function iva() {
+			return Math.round(this.valor * 0.16);
+		}
+		function total(reb) {
+			var precio = this.iva() + this.valor;
+			precio = precio - precio * reb / 100;
+			return Math.round(precio);
+		}
+
+        // Función constructora
+		function Articulo(desc, cod, precio) {
+            // Propiedades
+			this.desc = desc;
+			this.codigo = cod;
+			this.valor = precio;
+            // Metodos, referencia a funciones externas
+			this.iva = iva;
+			this.pvp = total;
+		}
+
+        // Función independiente
+		function printDatos(item) {
+		    document.write("<h3>");
+		    document.write('Artículo: ' + item.desc + " (" + item.codigo + ")");
+		    document.write("</h3>");
+		    document.write("Precio: " + item.valor + " €<br>");
+			document.write("IVA: " + item.iva() + " €<br>");
+			document.write("Precio venta: "+ item.pvp(10)+ " € (Dto 10%)<br>");
+		}
+
+	// -->
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Catálogo de productos
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<script>
+   			//<!--
+			var item1 = new Articulo("Raton USB", "PerRt-01", 25);
+			printDatos(item);
+			var item2 = new Articulo("Raton Inalambrico", "PerRt-03", 45);
+			printDatos(item);
+			//-->
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

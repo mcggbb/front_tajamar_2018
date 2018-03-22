@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>OOP - JS</title>
+	<meta name="description" content="Ejercicios del Curso ASI">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+  	<link rel="stylesheet" href="javascript_001.css">
+    <script>
+
+        // Patrón de Herencia "estándar", 
+        // de encadenamiento de prototipos
+        // basado en la relación entre el prototipo de la función (clase) Hija
+        // y un constructor temporal que recoge el prototipo de la funcuón (clase) padre
+        // encapsulando todo ello en una función extend()
+
+        function extend(Hijo, Padre) {
+            var F = function () { };
+            F.prototype = Padre.prototype;
+            Hijo.prototype = new F();
+            Hijo.prototype.constructor = Hijo;
+            Hijo.uber = Padre.prototype;
+        }
+
+
+        function Persona(nombre, edad) {
+            this.nombre = nombre;
+            this.edad = edad;
+        }
+
+        Persona.prototype.showMessage = function () {
+            document.write("<p>Soy " + this.nombre +
+                            " y tengo " + this.edad + " años</p>");
+        };
+
+ 
+        // Ejemplo de Estudiante sin herencia de Persona
+        function EstudianteOld(curso, matricula) {
+            this.curso = curso;
+            this.matricula = matricula;
+        };
+        EstudianteOld.prototype.showMessage = function () {
+            if (this.constructor.uber) {
+                this.constructor.uber.showMessage.call(this)
+            }
+            document.write("<p>Estoy en el curso " + this.curso +
+                " con el número de matrícula " + this.matricula + "</p>");
+        };
+
+
+        // Ejemplo de Estudiante herendando de Persona
+        function Estudiante(nombre, edad, curso, matricula) {
+            // en primer lugar se invoca el constructor de la función padre
+            Persona.prototype.constructor.call(this,nombre,edad)
+            this.curso = curso;
+            this.matricula = matricula;
+        }
+        // Implementacion de la herencia
+        extend(Estudiante, Persona);
+        // Modificaciones del prototipo, posteriores a la herencia
+        Estudiante.prototype.showMessage = function () {
+            if (this.constructor.uber) {
+                this.constructor.uber.showMessage.call(this)
+            }
+            document.write("<p>Estoy en el curso " + this.curso +
+                " con el número de matrícula " + this.matricula + "</p>");
+        };
+
+        // Instanciación y uso de objetos
+        var p1 = new Persona("Pepe", 22);
+        var e1 = new EstudianteOld("Desarrollo Web", "22A")
+        var e2 = new Estudiante("Pepe", 22, "Desarrollo Web", "22A")
+
+        // La salida por consola mediante dir permite observar
+        // la estructura del objeto, revelando la cadena de prototipos
+        console.dir(p1);
+        console.dir(e1);
+        console.dir(e2);
+
+    </script>
+</head>
+
+ <body>
+  
+  	<header>
+  		<h1>Ejemplo de Herencia</h1>
+	</header>
+	<article>
+		<p>Ejemplo de Herencia entre 2 tipos de objetos</p>
+        <ul>
+            <li>Persona()</li>
+            <li>Estudiante()</li>
+        </ul>
+        <h2>Mensaje de un objeto "Persona"</h2>
+        <script>
+            //Mensaje del ongeto p1 (Persona)
+            p1.showMessage();
+        </script>
+        <h2>Mensaje de un objeto "Estudiante"</h2>
+        <script>
+            // Mensaje del objeto e1 (Estudiante sin herencia)
+            e1.showMessage();
+        </script>
+        <h2>Mensaje de un objeto "Estudiante" heredero de "Persona"</h2>
+        <script>
+            // Mensaje del objeto e2 (Estudiante y Persoana)
+            e2.showMessage();
+        </script>
+
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

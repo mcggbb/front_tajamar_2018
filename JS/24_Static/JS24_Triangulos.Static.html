@@ -1,0 +1,117 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Productos - JavaScript_001</title>
+	<meta name="description" content="Ejercicios del Curso CMF">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+    <style>
+        header, footer {
+            margin-left: 2em;
+        }
+        section {
+            width: 50%;
+            margin: 1em auto;
+        }
+        ul {
+            list-style-image: url("bullet_10.jpg");
+        }
+
+            ul li:nth-child(2n+1) {
+                background-color: papayawhip;
+            }
+
+    </style>
+  	<script>
+
+        // Función constructura
+
+        function Triangulo(lado1, lado2, lado3) {
+            // atributos "privados"
+			var _lado1 = lado1;
+			var _lado2 = lado2;
+			var _lado3 = lado3;
+
+            // métodos privilegiados
+			this.getLado1 = function () { return _lado1;}
+			this.getLado2 = function () { return _lado2; }
+			this.getLado3 = function () { return _lado3; }
+		} // Fin de la función constructora
+
+        //Propiedad STATIC 
+        Triangulo.tiposPosibles = ["Equilátero", "Isosceles", "Escaleno"];
+
+		Triangulo.prototype.showLados = function () {
+		    return this.getLado1() + ", " + this.getLado2() + ", " + this.getLado3(); 
+		}
+
+		Triangulo.prototype.calcPerimetro = function () {
+		    return this.getLado1() + this.getLado2() + this.getLado3();
+		}; // Fin de la función getPerimetro del prototipo
+
+		Triangulo.prototype.calcTipo = function () {
+		    var i = 1;
+		    var lado1 = this.getLado1(),
+		        lado2 = this.getLado2(),
+		        lado3 = this.getLado3()
+
+		    if (lado1 == lado2 && lado1 == lado3) i = 0
+		    else if (lado1 != lado2 && lado1 != lado3 && lado2 != lado3) i = 2
+		    return Triangulo.tiposPosibles[i];
+		}; // Fin de la función getTipo del prototipo
+
+		Triangulo.prototype.printDatos = function () {
+		    document.write("<h3>");
+		    document.write("Triángulo");
+		    document.write("</h3>");
+		    document.write("<ul><li>Lados: "+ this.showLados() + " </li>");
+		    document.write("<li>Tipo: " + this.calcTipo() + "</li>");
+		    document.write("<li>Perímetro: " + this.calcPerimetro() + "</li></ul><hr>");
+		    console.dir(this);
+		};	//fin de la función printDatos del prototipo
+		
+
+	// -->
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Triángulos</h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+        <section>
+            <script>
+                var item1 = new Triangulo(16, 16, 16);
+                var item2 = new Triangulo(12, 25, 12);
+                var item3 = new Triangulo(12, 25, 10);
+                item1.printDatos();
+                item2.printDatos();
+                item3.printDatos();
+                console.dir(Triangulo); //.tiposPosibles
+            </script>
+        </section>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>
+

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Objeto Factura - JS</title>
+    <meta charset="UTF-8">
+   	<meta name="description" content="Ejercicios del Curso Web">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="factura.css">
+	<script type="text/javascript">
+
+        // Estructura del objeto literal factura
+        // construido como un closure
+        // para diferenciar sus ámbitos privado y público
+
+        var factura = function () {
+            // propiedades "privadas del objeto
+            var _empresa =  {
+                    nombre: "Ediciones Tuatalug",
+                    direccion: "c/ Libreros, 23",
+                    telefono: "900900900",
+                    nif: "X-25436789"
+            }
+            var _cliente = {
+                nombre: "Libreria Boracay",
+                direccion: "Avda del Rey, 12",
+                telefono: "600600600",
+                nif: "X-89763452"
+            }
+            var _elementos = [
+                { descripcion: "Libro 1", cantidad: 12, precio: 14 },
+                { descripcion: "Libro 2", cantidad: 10, precio: 20 },
+                { descripcion: "Libro 3", cantidad: 15, precio: 34 }
+            ]
+            var _informacion = {
+                baseImponible: 0,
+                iva: 1.21,
+                total: 0,
+                formaPago: "contado"
+            }
+
+            return {
+                // objeto retornado, correspondiente a las partes públicas
+                
+                // Métodos de cálculo del total y de visualización del total
+                calculaTotal : function() {
+                    for (var i = 0; i < _elementos.length; i++) {
+                        _informacion.baseImponible += _elementos[i].cantidad * _elementos[i].precio;
+                    }
+                    _informacion.total = _informacion.baseImponible * _informacion.iva;
+                }, // Fin del método calculaTotal
+                
+                muestraDatos : function (){
+                    this.calculaTotal();
+                    document.write("<p><b>Datos Empresa</b></p>");
+                    document.write("<ul>");
+                    for (i in _empresa) {
+                        document.write("<li><span class=Cap>" + i + "</span>: " + _empresa[i] + "</li>");
+                    }
+                    document.write("</ul>");
+				
+                    document.write("<p><b>Datos Cliente</b></p>");
+
+                    document.write("<ul>");
+                    for (i in _cliente) {
+                        document.write("<li><span class=Cap>" + i + "</span>: " + _cliente[i] + "</li>");
+                    }
+                    document.write("</ul>");
+				
+                    document.write("<p><b>Lista de elementos</b></p>");
+                    document.write("<ul class=elementos>");
+                    document.write("<li class=elementos>Descripcion</li>");
+                    document.write("<li class=elementos>Cantidad</li>");
+                    document.write("<li class=elementos>Precio</li>");
+                    document.write("</ul>");				
+                    for(var i=0; i<_elementos.length; i++){
+                        document.write("<ul class=elementos>");
+                        for (j in _elementos[i]) {
+                            document.write("<li class=elementos>" + _elementos[i][j] + "</li>");
+                        }
+                        //document.write("<li class=elementos>" + _elementos[i].descripcion+"</li>");
+                        //document.write("<li class=elementos>" + _elementos[i].cantidad+"</li>");
+                        //document.write("<li class=elementos>" + _elementos[i].precio+"</li>");
+                        document.write("</ul>");		
+                    };
+                    document.write("<p><b>Total a pagar</b></p>");
+                    document.write("<ul>");
+                    document.write("<li>Importe Total: " + _informacion.total.toFixed(2)+"</li>");
+                    document.write("<li>Iva: "+ _informacion.iva+"</li>");
+                    document.write("<li>Pago: "+ _informacion.formaPago+"</li>");
+                    document.write("</ul>");
+                    console.dir(this);
+                } // Fin del método muestraDatos
+            } // Fin del objeto retornado
+        }(); // Fin y autoejecución del closure
+
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Ediciones Tuatalug</h1>
+	</header>
+	<article>
+		<h2>Factura</h2>
+		<section>
+			<script type="text/javascript">
+				factura.muestraDatos();
+			</script>
+		</section>
+	</article>
+</body>
+</html>

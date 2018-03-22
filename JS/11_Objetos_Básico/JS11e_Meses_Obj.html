@@ -1,0 +1,60 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Meses del año - JS</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+    <style type="text/css">
+  		body {margin: 2em 3em;} /* vertical horizontal */
+		  th, td {padding: 0.4em 2em;}
+		  th {background-color: blue;
+			color: white;}
+		  tr:nth-child(odd) {background-color: #b4d5d6;}	
+		  tr:nth-child(even) {background-color: #f9fdfd;} 
+    </style>
+	<script>
+        var mesesEnglish = {
+            Enero: "January",
+   			Febrero : "February",
+   			Marzo : "March",
+   			Abril : "April",
+   			Mayo : "May",
+   			Junio : "Jume",
+   			Julio: "July",
+            Agosto : "August",
+            Septiembre : "September",
+            Octubre : "October",
+            Noviembre : "November",
+            Diciembre : "December",
+            objetoEnTabla : function () {
+                document.write("<table><tr><th>Español</th><th>Inglés</th></tr>")
+                for (var i in this) {
+                    if (typeof this[i] === "function") { continue; } // No muestra métodos
+                    //if (i == "objetoEnTabla") {continue;}
+                    document.write("<tr>");
+                    document.write("<td>"+ i + "</td><td>" +  this[i] + "</td>");
+                    document.write("</tr>");
+                } // fin del bucle for 
+                document.write("</table>")
+            } // fin de la funcion
+        }
+	</script>
+</head>
+
+ <body>
+  	<header>
+  	    <h1>Los meses del año</h1>
+	</header>
+ 	<article>
+        <script>mesesEnglish.objetoEnTabla();</script>
+ 	</article>
+  	<footer>
+		<p>&copy; Copyright  by Alejandro L. Cerezo</p>
+	</footer>
+ </body>
+
+</html>

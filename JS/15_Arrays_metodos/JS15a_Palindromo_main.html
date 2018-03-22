@@ -1,0 +1,107 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Palindromos - JS</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+  	
+ 		<script>
+           function main() {
+               function esPalindromo(cadena) {
+
+                   // Pasar a minusculas la cadena
+                   cadena = cadena.toLowerCase();
+
+                   // Convertir la cadena en un array seperando las palabras
+                   var aPalabras = cadena.split(" ");
+
+                   // Reconstruir la cadena sin los espacios en blanco 
+                   cadena = "";
+                   for (i in aPalabras) {
+                       cadena += aPalabras[i];
+                   }
+                   // Crear dos arrays, directo y reverso, con las letras de la cadena
+                   //var aLetras = cadena.split("");
+                   //var aLetrasReves = cadena.split("").reverse();
+
+                   // Comparar ambos arrays, rieratamente como arrays
+                   //var iguales = true;
+                   //for (i in aLetras) {
+                   //   if (aLetras[i] == aLetrasReves[i]) {
+                   //        // Todo bien
+                   //    } else {
+                   //        // Alguna letra es distinta, por lo que ya no es un palindromo
+                   //        iguales = false;
+                   //        break;
+                   //   }
+                   //}
+                   //return iguales;
+
+                   // comparar las cadenas correspondientes a los arrays
+                   //if (aLetras.join() != aLetrasReves.join()) {
+                   //    return false;
+                   //}
+                   //return true;
+
+                   // comparar la cadenas
+                   // con la cadena convertida a array, invertido este y vuelta a hacer cadena 
+                   if (cadena != cadena.split("").reverse().join("")) {
+                       return false;
+                   }
+                   return true;
+
+
+
+
+               }; // Fin de la funció esPalindromo()
+
+               function respuesta(sFrase, esPali) {
+                   sFrase = 'La cadena "' + sFrase + '"<br>';
+                   if (esPali) {
+                       sFrase += " es un palíndromo";
+                   } else {
+                       sFrase += " no es un palíndromo";
+                   }
+                   document.write("<p>" + sFrase + "</p>");
+               }; // Fin de la función respuesta
+               
+               var sFrase = prompt("Introduce una frase");
+               respuesta(sFrase, esPalindromo(sFrase));
+               sFrase = "La ruta nos aporto otro paso natural";
+               respuesta(sFrase, esPalindromo(sFrase));
+
+           } // Fin de la función main()
+        </script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	    <h1>Palíndromos</h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<script>
+           main();
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

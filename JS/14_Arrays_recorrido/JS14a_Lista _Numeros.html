@@ -1,0 +1,74 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Hola Mundo - JavaScript_001</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+  	<script>
+        function main() {
+
+            function rellenarArray(matriz) {
+                for (var i = 0; i < matriz.length; i++) {
+                    //		for (i in matriz){	
+                    matriz[i] = Math.round(Math.random() * 100);
+                }; // Fin del bucle for
+            }; // Fin de la función rellenarArray
+
+            const Q1 = "Indica, entre 10 y 25. cuantos números aleatorios quieres",
+                E1 = "El número es incorrecto";
+
+            // Recogemos el número que indica el usuario
+            var numero = prompt(Q1);
+
+            //comprobamos que el número está en el rango permitido
+            if (numero < 10 || numero > 25) {
+                document.write(E1);
+                return;
+            }
+
+            //creamos un array de la longitud definid por el usuario
+            var lista = new Array(+numero);
+
+            //pasamos el arry a la función que lo rellena
+            rellenarArray(lista);
+
+            //mostramos el tesultado
+            document.write(lista);
+
+        }  // Fin de la función main()
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	    <h1>Saludo según la hora</h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+        <h2>Primera lista</h2>
+        <script>main();</script>
+        <!--Repetimos para comprobar la aleatoriedad -->
+        <h2>Segunda lista</h2>
+        <script>main();</script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

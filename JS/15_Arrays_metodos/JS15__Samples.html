@@ -1,0 +1,95 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Arrays - JavaScript_015</title>
+	<meta name="description" content="Ejercicios del Curso CMF">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="/fav_icon.png">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  	<link rel="stylesheet" href="default.css">
+  	<style type="text/css">
+  		footer {margin-top: 2em;
+  				border-top: 2px solid }
+  	</style>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Operaciones con arrays
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<script>
+			var aNombresM = ["Juan","Jose","Luis","Carlos"];
+			var aNombresF = ["Rosa","María","Ana","Carmen"];
+			sCadena = aNombresM.join(" / ");
+			document.write("<p>El array aNombresM inicialmente es: " + sCadena + "</p>");			
+			sCadena = aNombresF.join(" / ");
+			document.write("<p>El array aNombresM inicialmente es: " + sCadena + "</p>");			
+
+			document.write("<h2>Uso de la propiedad length</h2>")
+			document.write("<p>El array aNombresM tiene " + aNombresM.length + " elementos</p>");
+			document.write("<p>El array aNombresF tiene  " + aNombresF.length + " elementos</p>");
+
+			document.write("<h2>Uso del metodo concat()</h2>")
+			var aNombresTotal = aNombresM.concat(aNombresF);
+			document.write("<p>El array aNombresTotal (aNombresM + aNombresF) tiene " + aNombresTotal.length + " elementos</p>");
+			
+			document.write("<h2>Uso del metodo join()</h2>")
+			var sCadena = aNombresM.join(" / ");
+			document.write("<p>La cadena creada desde el array aNombresM incluye: " + sCadena + "</p>");
+
+			document.write("<h2>Uso del metodo sort()</h2>")
+			sCadena = aNombresM.sort().join(" / ");
+			document.write("<p>El array aNombresM ordenado incluye: " + sCadena + "</p>");
+			sCadena = aNombresM.join(" / ");
+			document.write("<p>El array aNombresM tras el método incluye: " + sCadena + "</p>");
+			
+			document.write("<h2>Uso del metodo reverse()</h2>")
+			sCadena = aNombresM.reverse().join(" / ");
+			document.write("<p>El array aNombresM invertido incluye: " + sCadena + "</p>");
+			sCadena = aNombresM.join(" / ");
+			document.write("<p>El array aNombresM tras el método incluye: " + sCadena + "</p>");
+
+			document.write("<h2>Uso del metodo slice()</h2>")
+			var aParte = aNombresM.slice(1,3)
+			document.write("<p>El array aNombresM tras el método incluye: " + aNombresM + "</p>");
+			document.write("<p>El array aParte (slice(1,3)) incluye: " + aParte + "</p>");
+
+			document.write("<h2>Uso del metodo splice()</h2>")
+			sCadena = aNombresM.join(" / ");
+			document.write("<p>El array aNombresM inicialmente es: " + sCadena + "</p>");			
+			document.write("<h3>Splice(1,2, 'Raul', 'Alberto')</h2>")
+			var aParte2 = aNombresM.splice(1,2, "Raul", "Alberto")
+			document.write("<p>El array aNombresM tras el método incluye: " + aNombresM + "</p>");
+			document.write("<p>El array aParte2 incluye: " + aParte2 + "</p>");
+
+			document.write("<h2>Uso del metodo splice(n,0)</h2>")
+			sCadena = aNombresM.join(" / ");
+			document.write("<p>El array aNombresM inicialmente es: " + sCadena + "</p>");			
+			document.write("<h3>Uso del metodo splice(1,0, 'Jesus')</h3>")
+			var aParte3 = aNombresM.splice(1,0, "Jesus")
+			document.write("<p>El array aNombresM tras el método incluye: " + aNombresM + "</p>");
+			document.write("<p>El array aParte3 incluye: " + aParte3 + "</p>");
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

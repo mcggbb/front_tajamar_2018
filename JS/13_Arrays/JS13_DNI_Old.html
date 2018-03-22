@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculo de la letra del DNI - JS</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+	<script type="text/javascript">
+        function main() {
+            var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N',
+            'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+            var numero = prompt("Introduce tu número de DNI (sin la letra)");
+            var letra = prompt("Introduce la letra de tu DNI (en mayúsculas)");
+            letra = letra.toUpperCase();
+            if (numero < 0 || numero > 99999999) {
+                alert("El número proporcionado no es válido");
+            } else {
+                if (letras[numero % 23] != letra.toUpperCase()) {
+                    alert("La letra o el número proporcionados no son correctos");
+                } else {
+                    alert("El número de DNI y su letra son correctos");
+                }
+            }
+        }
+	</script>
+</head>
+
+<body>
+	<p>Esta página calcula la letra del DNI</p>
+    <script>
+        main();
+    </script>
+</body>
+</html>

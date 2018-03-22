@@ -1,0 +1,97 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>OOP - JS</title>
+	<meta name="description" content="Ejercicios del Curso ASI">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+  	<link rel="stylesheet" href="javascript_001.css">
+    <style>
+        div {
+            width: 25%;
+            float: left;
+            margin-left: 3%;
+        }
+        footer {
+            clear: both;
+        }
+    </style>
+    <script>
+        function main() {
+
+            var aNombres = [{ nombre: "Pepe", edad: 23 },
+                          { nombre: "Juan", edad: 22 },
+                          { nombre: "Miguel", edad: 34 }];
+            aNombres[aNombres.length] = { nombre: "Raul", edad: 20 };
+            aNombres[aNombres.length] = { nombre: "Gabriel", edad: 37 };
+            aNombres[aNombres.length] = { nombre: "Daniel", edad: 31 };
+
+            document.write("<div>")
+            document.write("<h2>Array original</h2>")
+            muestraArray(aNombres);
+            document.write("</div>")
+
+            document.write("<div>")
+            document.write("<h2>Array ordenado al azar</h2>")
+            shuffle(aNombres)
+            muestraArray(aNombres);
+            document.write("</div>")
+
+            document.write("<div>")
+            document.write("<h2>Array ordenado por edades</h2>")
+            orderEdad(aNombres);
+            muestraArray(aNombres);
+            document.write("</div>")
+
+        }
+
+         function shuffle( aDatos ){
+             return aDatos.sort(function (a, b) { return (Math.random() - 0.5); });
+         }
+
+         function orderEdad ( aDatos){
+             return aDatos.sort(function (a,b){return (a.edad - b.edad) });
+         }
+
+         function muestraArray(aArray) {
+             for (i = 0; i < aArray.length; i++)
+                 muestraDatos(aArray[i]);
+         }
+
+         function muestraDatos(oVuelo) {
+             document.write("<ul>");
+             for (var i in oVuelo) {
+                 if (typeof oVuelo[i] === "object") {
+                     document.write("<li>" + i + "<ul>")
+                     for (var j in oVuelo[i]) {
+                         document.write("<li>" + j + " : " + oVuelo[i][j] + "</li>")
+                     }
+                     document.write("</li></ul>")
+                 }
+                 else { document.write("<li>" + i + " : " + oVuelo[i] + "</li>") };
+             }
+             document.write("</ul>");
+         }
+
+    </script>
+</head>
+
+ <body>
+  
+  	<header>
+  		<h1>Array de Objetos</h1>
+	</header>
+	<article>
+		<p>Texto</p>
+        <script>main()</script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

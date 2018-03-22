@@ -1,0 +1,61 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Case - JS</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+ 	<script>
+	function info(cadena) {
+			var resultado = "La cadena \""+cadena+"\" ";
+			// Comprobar mayúsculas y minúsculas
+			if(cadena == cadena.toUpperCase()) {
+				resultado += " está formada sólo por <b>mayúsculas</b>";
+			}
+			else if(cadena == cadena.toLowerCase()) {
+				resultado += " está formada sólo por <b>minúsculas</b>";
+			}
+			else {
+				resultado += " está formada por <b>mayúsculas y minúsculas</b>";
+			}
+		return resultado;
+	}
+		</script>
+
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Titulo
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<script>
+           const CAD1 = "OVNI = OBJETO VOLADOR NO IDENTIFICADO",
+               CAD2 = "En un lugar de la mancha...";           
+           document.write("<p>" + info(CAD1) + "</p>");
+           document.write("<p>" + info(CAD2) + "</p>");
+           document.write("<p>" + info(prompt()) + "</p>");
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

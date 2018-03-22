@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Productos - JavaScript_001</title>
+	<meta name="description" content="Ejercicios del Curso CMF">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  	<link rel="stylesheet" href="default.css">
+    <style>
+        header, footer {
+            margin-left: 2em;
+        }
+        section {
+            width: 50%;
+            margin: 1em auto;
+        }
+        ul {
+            list-style-image: url("bullet_10.jpg");
+        }
+
+            ul li:nth-child(2n+1) {
+                background-color: papayawhip;
+            }
+
+    </style>
+  	<script>
+        // Función constructura
+
+		function Triangulo(lado1, lado2, lado3) {
+			var _lado1 = lado1;
+			var _lado2 = lado2;
+			var _lado3 = lado3;
+
+		    //No es STATIC porque aun no se ha explicado ese concepto
+			Triangulo.prototype.tiposPosibles = ["Equilátero", "Isosceles", "Escaleno"];
+
+			Triangulo.prototype.getLados = function () {
+			    return _lado1 + ", " + _lado2 + ", " + _lado3;
+			}
+
+			Triangulo.prototype.getPerimetro = function () {
+			    return _lado1 + _lado2 + _lado3;
+			}; // Fin de la función getPerimetro del prototipo
+
+			Triangulo.prototype.getTipo = function () {
+			    var i = 1;
+			    if (_lado1 == _lado2 && _lado1 == _lado3) i = 0
+			    else if (_lado1 != _lado2 && _lado1 != _lado3 && _lado2 != _lado3) i = 2
+			    return this.tiposPosibles[i];
+			}; // Fin de la función getTipo del prototipo
+
+			Triangulo.prototype.printDatos = function () {
+			    document.write("<h3>");
+			    document.write("Triángulo");
+			    document.write("</h3>");
+			    document.write("<ul><li>Lados: " + this.getLados() + " </li>");
+			    document.write("<li>Tipo: " + this.getTipo() + "</li>");
+			    document.write("<li>Perímetro: " + this.getPerimetro() + "</li></ul><hr>");
+			    console.dir(this);
+			};	//fin de la función printDatos del prototipo
+
+		} // Fin de la función constructora
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Triángulos</h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+        <section>
+            <script>
+                var item1 = new Triangulo(16, 16, 16);
+                var item2 = new Triangulo(12, 25, 12);
+                var item3 = new Triangulo(12, 25, 10);
+                item1.printDatos();
+                item2.printDatos();
+                item3.printDatos();
+            </script>
+        </section>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>
+

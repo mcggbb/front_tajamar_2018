@@ -1,0 +1,119 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>OOP - JS</title>
+	<meta name="description" content="Ejercicios del Curso ASI">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+  	<link rel="stylesheet" href="javascript_001.css">
+    <script>
+
+        // Herencia basada en la creación de objetos
+        // a partir de otros ya existentes
+        // sin la utilización de funciones constructoras
+
+        var personaPatron = {
+            nombre:"",
+            edad:"",
+            amigos: null,
+            // equivalente a una función constructora
+            init : function (nombre, edad) {
+                this.nombre = nombre;
+                this.edad = edad;
+                this.amigos = [];
+
+                return this;
+            },
+            showPersonal : function () {
+                 document.write ("<p>Soy " + this.nombre + 
+                                " y tengo " + this.edad + " años</p>");
+            }
+        } // Fin del objeto personaPatron definido literalmente
+ 
+        // Creamos un clon del primer objeto
+        // Como segundo parametro incluimos un objeto 
+        // con las nievas propiedades específicas del segundo objeto
+        // necesariamente redefinidas a su vez como objetos,
+        // lo mismo que los métodos
+        // incluido el equivalente a una función constructora
+
+        var estudiantePatron = Object.create(personaPatron, {
+            curso: {
+                writable: true,
+                value: ""
+            },
+            //curso: {
+            //   configurable: true,
+            //    get: function () { return this.cursoValue;},
+            //   set: function (val) {this.cursoValue = val; }
+            //},
+            matricula: {
+                writable: true,
+                value: ""
+                //get: function () { return this.value; },
+                //set: function (val) { this.value = val; }
+            },
+            init: {
+                value: function (nombre, edad, curso, matricula) {
+                    personaPatron.init.call(this, nombre, edad);
+                    this.curso = curso;
+                    this.matricula = matricula;
+                    return this;
+                }
+            },//Fin del método init
+            showAcademico: {
+                value: function () {
+                    document.write("<p>Estoy en el curso " + this.curso +
+                              " con el número de matrícula " + this.matricula + "</p>");
+                }
+            } // Fin del método showAcademico
+        }); // fin de Object.create
+        
+          
+
+        // Instanciación de objetos: cada línea
+        // funciona como un operador new
+
+        var p1 = Object.create(personaPatron).init("Pepe", 22);
+        var e1 = Object.create(estudiantePatron).init("Pepe", 22, "Desarrollo Web", "122A");
+
+            // La salida por consola mediante dir permite observar
+            // la estructura del objeto, revelando la cadena de prototipos
+            console.dir(p1);
+            console.dir(e1);
+
+    </script>
+</head>
+
+ <body>
+  
+  	<header>
+  		<h1>Ejemplo de Herencia</h1>
+	</header>
+	<article>
+		<p>Ejemplo de Herencia entre 2 tipos de objetos</p>
+        <ul>
+            <li>Persona()</li>
+            <li>Estudiante()</li>
+        </ul>
+        <h2>Mensaje de un objeto "Persona"</h2>
+        <script>
+            p1.showPersonal();
+        </script>
+        <h2>Mensaje de un objeto "Estudiante"</h2>
+        <script>
+            e1.showPersonal();
+            e1.showAcademico();
+        </script>
+
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

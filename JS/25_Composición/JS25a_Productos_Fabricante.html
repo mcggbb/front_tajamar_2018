@@ -1,0 +1,87 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Productos - JavaScript_001</title>
+	<meta name="description" content="Ejercicios del Curso CMF">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+  	<link rel="stylesheet" href="default.css">
+  	<script>
+
+        // Ejemplo de relación entre varios objetos (Asociación / Composición)
+        // el segundo de los objetos ("fabricante") se construye literalmete 
+        // en los parámetros que recibe el constructor del objeto principal ("artículo")
+
+        // Función constructoras
+
+		function Articulo(nombre, cod, precio, desc, fabricante, ivaTipo) {
+			this.nombre = nombre;
+			this.codigo = cod;
+			this.valor = precio;
+			this.descuento = (desc || 0);
+			this.fabricante = fabricante; // Esto es un objeto
+			this.ivaBase = (ivaTipo || 0.16)
+			this.iva = function () {return Math.round(this.valor * this.ivaBase);};
+			this.pvp = 	function () {
+				var precio = this.iva() + this.valor;
+				precio = precio - precio * this.descuento / 100;
+				return Math.round(precio);}; //fin de pvp
+			this.printDatos = function () {
+				document.write("<h3>");
+				document.write('Artículo: ' + this.nombre + " ("+this.codigo+")");
+				document.write("</h3>");
+				document.write("<a href=http://" + this.fabricante.web +">")
+				document.write("Fabricante: " + this.fabricante.nombre + " </a><br>");
+				document.write("Precio: " + this.valor + " €<br>");
+				document.write("IVA: " + this.iva() + " €<br>");
+				document.write("Precio venta: "+ this.pvp()+ " € (Dto " + this.descuento + "%)<br>");				
+			};	//fin de printDatos
+		}
+		
+
+	// -->
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Catálogo de productos</h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<script>
+   			//<!--
+           var item1 = new Articulo("Raton USB", "PerRt-01", 25, 10,
+                                    { nombre: "Logitech", direccion: "", web: "www.logitech.com" });
+			var item2 = new Articulo("Raton Inalambrico", "PerRt-03", 45, 15,
+                                    { nombre: "Genius", direccion: "", web: "www.genius.es" });
+			var item3 = new Articulo("Memoria USB", "PerRt-08", 25, 0,
+                                    { nombre: "Kingston", direccion: "", web: "www.kingston.com" });
+			var item4 = new Articulo("Disco SSD 60GB", "K-V300-60", 50, 0,item3.fabricante);
+
+			item1.printDatos();
+			item2.printDatos();
+			item3.printDatos();
+			item4.printDatos();
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>
+

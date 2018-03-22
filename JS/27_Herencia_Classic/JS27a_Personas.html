@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>OOP - JS</title>
+	<meta name="description" content="Ejercicios del Curso ASI">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+  	<link rel="stylesheet" href="javascript_001.css">
+    <script>
+
+            // Primer patrón de Herencia, basado en la relación
+            // entre el prototipo de la función (clase) Hija
+            // y un objeto instamciado de la funcuón (clase) padre
+            // Hijo.prototype = new Padre();
+
+
+            function Persona(nombre, edad) {
+                this.nombre = nombre;
+                this.edad = edad;
+                this.showPersonal = function () {
+                    document.write ("<p>Soy " + this.nombre + 
+                                   " y tengo " + this.edad + " años</p>");
+                };
+            }
+ 
+            function Estudiante(curso, matricula) {
+                this.curso = curso;
+                this.matricula = matricula;
+                this.showAcademico = function () {
+                    document.write("<p>Estoy en el curso " + this.curso + 
+                        " con el número de matrícula " + this.matricula + "</p>");
+                };
+            }
+
+            function EstudianteP(nombre, edad, curso, matricula) {
+
+                // en primer lugar se invoca el constructor de la función padre
+                Persona.prototype.constructor.call(this,nombre,edad)
+                this.curso = curso;
+                this.matricula = matricula;
+                this.showAcademico = function () {
+                    document.write("<p>Estoy en el curso " + this.curso +
+                        " con el número de matrícula " + this.matricula + "</p>");
+                };                
+            }
+
+            // Implementacion de la herencia
+
+            EstudianteP.prototype = new Persona();
+            EstudianteP.prototype.constructor = EstudianteP;
+
+            // Instanciación y uso de objetos
+
+            var p1 = new Persona("Pepe", 22);
+            var e1 = new Estudiante("Desarrollo Web", "22A")
+            var e2 = new EstudianteP("Pepe", 22, "Desarrollo Web", "22A")
+
+
+            // La salida por consola mediante dir permite observar
+            // la estructura del objeto, revelando la cadena de prototipos
+            console.dir(p1);
+            console.dir(e1);
+            console.dir(e2);
+
+    </script>
+</head>
+
+ <body>
+  
+  	<header>
+  		<h1>Ejemplo de Herencia</h1>
+	</header>
+	<article>
+		<p>Ejemplo de Herencia entre 2 tipos de objetos</p>
+        <ul>
+            <li>Persona()</li>
+            <li>Estudiante()</li>
+        </ul>
+        <h2>Mensaje de un objeto "Persona"</h2>
+        <script>
+            p1.showPersonal();
+        </script>
+        <h2>Mensaje de un objeto "Estudiante"</h2>
+        <script>
+            e1.showAcademico();
+        </script>
+        <h2>Mensaje de un objeto "Estudiante" heredero de "Persona"</h2>
+        <script>
+            e2.showPersonal();
+            e2.showAcademico();
+        </script>
+
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

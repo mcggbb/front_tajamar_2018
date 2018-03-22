@@ -1,0 +1,62 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Reyes de España - JS </title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+  	<script>
+        // Función de busqueda en el array booleana:
+        // devuelve true si encuentra el elemento buscado
+
+        function buscarItem(lista, cad) {
+			var ind;
+			for (ind = 0; ind < lista.length; ind++) {
+				if (lista[ind].toUpperCase() == cad.toUpperCase()){
+					return (true)
+				}
+			}
+	
+		}
+	// -->
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Reyes de España
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<script>
+			var listaReyes = new Array('Fernando', 'Isabel', 'Juana', 'Carlos', 'Felipe', 
+								'Luis', 'Jose', "Amadeo", 'Alfonso', 'Juan Carlos');
+			
+			var cad = prompt("Escribe un nombre");
+			if (buscarItem(listaReyes,cad))
+				document.write(cad+' <b>es</b> el nombre de un rey de España' );
+			else
+				document.write(cad+ ' <b>no</b> es el nombre de un rey de España.');
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

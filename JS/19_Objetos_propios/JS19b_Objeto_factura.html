@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Objeto Factura - JS</title>
+    <meta charset="UTF-8">
+   	<meta name="description" content="Ejercicios del Curso Web">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="factura.css">
+    <style>
+        span.Cap {
+            text-transform: capitalize;
+        }
+    </style>
+	<script type="text/javascript">
+		// Estructura básica del objeto Factura
+		var factura = {
+		empresa: {
+			nombre: "Ediciones Tuatalug",
+			direccion: "c/ Libreros, 23",
+			telefono: "900900900",
+			nif: "X-25436789"
+			},
+		cliente: {
+			nombre: "Libreria Boracay",
+			direccion: "Avda del Rey, 12",
+			telefono: "600600600",
+			nif: "X-89763452"
+			},
+		elementos: [
+			{ descripcion: "Libro 1", cantidad: 12, precio: 14 },
+			{ descripcion: "Libro 2", cantidad: 10, precio: 20 },
+			{ descripcion: "Libro 3", cantidad: 15, precio: 34 }
+			],
+		informacion: {
+			baseImponible: 0,
+			iva: 1.21,
+			total: 0,
+			formaPago: "contado"
+		}
+		};
+		
+		// Métodos de cálculo del total y de visualización del total
+
+			factura.calculaTotal = function() {
+				for (var i = 0; i < this.elementos.length; i++) {
+					this.informacion.baseImponible += this.elementos[i].cantidad * this.elementos[i].precio;
+				}
+				this.informacion.total = this.informacion.baseImponible * this.informacion.iva;
+			};
+			
+//			factura.muestraTotal = function() {
+//				this.calculaTotal();
+//				alert("TOTAL = " + this.informacion.total + " euros");
+//			};
+			
+			factura.muestraDatos = function (){
+				this.calculaTotal();
+				document.write("<p><b>Datos Empresa</b></p>");
+				document.write("<ul>");
+				for (i in this.empresa) {
+				    document.write("<li><span class=Cap>" + i + "</span>: " + this.empresa[i] + "</li>");
+				}
+				document.write("</ul>");
+				
+				document.write("<p><b>Datos Cliente</b></p>");
+
+				document.write("<ul>");
+				for (i in this.cliente) {
+				    document.write("<li><span class=Cap>" + i + "</span>: " + this.cliente[i] + "</li>");
+				}
+				document.write("</ul>");
+				
+				document.write("<p><b>Lista de elementos</b></p>");
+				document.write("<ul class=elementos>");
+				document.write("<li class=elementos>Descripcion</li>");
+				document.write("<li class=elementos>Cantidad</li>");
+				document.write("<li class=elementos>Precio</li>");
+				document.write("</ul>");				
+				for(var i=0; i<this.elementos.length; i++){
+				    document.write("<ul class=elementos>");
+				    for (j in this.elementos[i]) {
+				        document.write("<li class=elementos>" + this.elementos[i][j] + "</li>");
+				    }
+					//document.write("<li class=elementos>" + this.elementos[i].descripcion+"</li>");
+					//document.write("<li class=elementos>" + this.elementos[i].cantidad+"</li>");
+					//document.write("<li class=elementos>" + this.elementos[i].precio+"</li>");
+					document.write("</ul>");		
+				};
+				document.write("<p><b>Total a pagar</b></p>");
+				document.write("<ul>");
+				document.write("<li>Importe Total: " + this.informacion.total.toFixed(2)+"</li>");
+				document.write("<li>Iva: "+ this.informacion.iva+"</li>");
+				document.write("<li>Pago: "+ this.informacion.formaPago+"</li>");
+				document.write("</ul>");
+			};
+			
+			//factura.muestraTotal();
+			
+		/*
+		function Factura (desc, cod, precio) {
+			this.empresa.nombre = "";
+			this.empresa.direccion = "";
+			this.empresa.telefono = "";
+			this.empresa.nif = "";
+		    this.cliente.nombre = "";
+			this.cliente.direccion = "";
+			this.cliente.telefono = "";
+			this.cliente.nif = "";
+			this.elementos = [this.elementos.descripcion, 
+						 	  this.elementos.producto,
+						 	  this.elementos.precio];
+			informacion.baseImponible = "";
+			informacion.iva = "";
+			informacion.total = "";
+			informacion.formaPago = "";
+		
+			desc = desc;
+			this.codigo = cod;
+			this.valor = precio;
+			this.iva = iva;
+			this.pvp = total;
+			}	
+		*/
+			
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Ediciones Tuatalug</h1>
+	</header>
+	<article>
+		<h2>Factura</h2>
+		<section>
+			<script type="text/javascript">
+				factura.muestraDatos();
+			</script>
+		</section>
+	</article>
+</body>
+</html>

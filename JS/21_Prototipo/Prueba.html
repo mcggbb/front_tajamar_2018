@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+		function Articulos(a,b,c){
+		    var _descripcion = a;
+		    var _codigo = b;
+		    var _precio = c;
+		    Articulos.prototype.iva = function(){
+		        var resIva = _precio * 1.21;
+		        return resIva;
+		    } // Fin función
+		    Articulos.prototype.imprime = function(){
+		        //for(var i in this){
+		        //    if(typeof this[i]!= "function"){  // INTENTAMOS EXCLUIR LOS MÉTODOS YA Q SOLO KEREMOS IMPRIMIR LAS PROPIEDADES A,B,C
+		                //document.write(i + ' : ' + this[i] + '<br>');
+		            //}
+		        //}
+		        document.write("El iva es "+ this.iva() + "<br>");
+		    } // fin funcion
+		}
+        var art1 = new Articulos('Libro1','133','5');
+        art1.imprime();
+        console.dir(art1)
+        var art2 = new Articulos('Libro2','150','8');
+        art2.imprime();
+        console.dir(art2)
+</script>
+	
+</body>
+</html

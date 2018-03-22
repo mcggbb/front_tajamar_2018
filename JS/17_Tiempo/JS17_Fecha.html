@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Horas y saludos - JS</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+  	<script>
+	//<!--
+        function formatoFecha(tiempo) {
+
+            tiempo = tiempo ? new Date(tiempo) : new Date();
+            var aSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sabado"]
+            var aMeses = ["Enero",
+                           "Febrero",
+                           "Marzo",
+                           "Abril",
+                           "Mayo",
+                           "Junio",
+                           "Julio",
+                           "Agiosto",
+                           "Septiembre",
+                           "Octubre",
+                           "Noviembre",
+                           "Diciembre"];
+
+	    var cDiaSemana = aSemana[tiempo.getDay()];
+	    var nDia = tiempo.getDate();
+	    var cMes = aMeses[tiempo.getMonth()];
+	    var nYear = tiempo.getFullYear();
+	    return cDiaSemana + ", " + nDia + " de " + cMes + " del "+ nYear;
+		}
+			// -->
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	    <h1>Fechas con formato</h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+        <h2>La fecha de hoy</h2>
+        <p>
+ 		    <script>
+			    document.write(formatoFecha());
+            </script>
+        </p>
+
+        <h2>Una fecha historica, Navidad de 1066</h2>
+        <p>
+            <script>
+                document.write(formatoFecha("1066,12,24"));
+            </script>
+        </p>
+
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

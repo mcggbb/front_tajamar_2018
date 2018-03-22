@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Funciones - JavaScript_001</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+	<script>
+ 		//<!--
+		function Suma_1(){res = var_1 + var_2;};
+		function Suma_2(par_1, par_2){res = par_1 + par_2;};
+		function Suma_3(par_1, par2) {
+			dato = par_1 + par2;
+			return dato;
+			};
+		function Suma_4(obj){obj.res = obj.var_1+obj.var_2;};
+		//-->
+   </script>
+				
+
+
+
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Funciones
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+        <h2>Funcion1</h2>
+ 		<script>
+   			//<!--
+			var var_1=12, var_2=10, res = 0;
+			Suma_1();			
+			document.write(res);
+		</script>
+       <h2>Funcion2</h2>
+ 		<script>
+			var_1=9, var_2=7, res = 0;
+			Suma_2(var_1, var_2);
+			document.write(res);
+		</script>
+        <h2>Funcion3</h2>        
+        <script>
+			var_1=2, var_2=5, res = 0;
+			res = Suma_3(var_1, var_2);
+			document.write(res);
+		</script>
+        <h2>Funcion4</h2>        
+        <script>			
+			var datos = {var_1: 120, var_2: 50, res: 0}; 
+			Suma_4(datos);
+			document.write(datos.res);
+		</script>
+            <h2>Funcion como metodo</h2>
+            <p>Defino la función fuera y se la asigno al objeto</p>
+        <script>
+			function Suma_4(){return this.var_1+this.var_2;};			
+			var objDatos1 = {var_1: 12, var_2: 5, res: 0}; 
+			objDatos1.suma = Suma_4; 
+			objDatos1.res = objDatos1.suma();
+			document.write(objDatos1.res);
+		</script>
+            <h2>Funcion como metodo 2</h2>
+            <p>Defino la función de forma anónima, directamente en el objeto</p>
+        <script>			
+			var objDatos2 = {var_1: 12, var_2: 5, res: 0}; 
+			objDatos2.suma = function (){return this.var_1 + this.var_2;}; 
+			objDatos2.res = objDatos2.suma();
+			document.write(objDatos2.res);
+		</script>
+        <h2>Funcion como metodo 3</h2>
+        <p>Defino la función de forma anónima, directamente en el objeto</br>
+         Guardo el resultado en un atributo: el metodo no devuelve nada</p>
+        <script>
+			var objDatos3 = {var_1: 12, var_2: 5, res: 0}; 
+			objDatos3.suma = function (){this.res =  this.var_1 + this.var_2;}; 
+			objDatos3.suma();
+			document.write(objDatos3.res);
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

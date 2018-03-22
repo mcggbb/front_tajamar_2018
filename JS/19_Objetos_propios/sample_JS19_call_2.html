@@ -1,0 +1,64 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Hola Mundo - HTML_001</title>
+	<meta name="description" content="Ejercicios del Curso ASI">
+	<meta name="author" content="Alejandro">
+  	<link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+    <script>
+
+        obj1 = {
+            numero: 22,
+            calc : function (x, y) {
+                return (this.numero + x) * y;
+            }
+        }
+        
+        // objeto que incluye un método pasado como callback
+
+        function mostrar1(f) {
+            console.log(f(3,2));
+        }
+
+        function mostrar2(f, o) {
+            console.log(f.call(o, 3, 2));
+        }
+
+        function main() {
+
+            // mostrar 1 no funciona, porqe utiliza incorrectamente
+            // el método que recibe por callback
+            mostrar1(obj1.calc);
+
+            //mostrar 2 se ha rrescrito y ejecuta el método con un call
+            mostrar2(obj1.calc, obj1);
+
+            //para no tener que reescribir mostrar 1
+            // le pasamos el método ligandolo al objeto gracias a bind
+            mostrar1(obj1.calc.bind(obj1));
+        }
+
+
+    </script>
+</head>
+
+ <body>
+  
+  	<header>
+  		<h1>Método call() y funciones "callback"</h1>
+	</header>
+	<article>
+		<p>Ver resultados en la consola</p>
+        <script>main()</script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

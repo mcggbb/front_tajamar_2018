@@ -1,0 +1,82 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Horas y saludos - JS</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+  	<script>
+	//<!--
+	function saludar(tiempo) {
+			tiempo = tiempo ? new Date(tiempo) : new Date();
+			var hora, cad = "son las ";
+			with (tiempo) {
+				hora = getHours() < 10 ? "0" + getHours() : getHours();
+				cad += hora + ":" + (getMinutes()< 10 ? "0" + getMinutes() : getMinutes()) + ":" 
+				                  + (getSeconds()< 10 ? "0" + getSeconds() : getSeconds());
+			}
+			if (hora > 4 && hora < 12)
+				cad = "Buenos días, " + cad;
+			else if (hora > 12 && hora < 19)
+				cad = "Buenas tardes, " + cad;
+			else
+				cad = "Buenas noches, " + cad;
+			return cad;
+		}
+			// -->
+	</script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Saludo según la hora
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<script>
+			document.write(saludar());
+        </script>
+
+      <h2>Dentro de 8 horas</h2>  
+ 		<script>
+ 			var hora = new Date()
+ 			hora = hora.getTime() + 8*60*60*1000;
+			document.write(saludar(hora));
+        </script>
+
+      <h2>Dentro de 16 horas</h2>  
+ 		<script>
+ 			var hora = new Date()
+ 			hora = hora.getTime() + 16*60*60*1000;
+			document.write(saludar(hora));
+        </script>
+
+        <h2>Dentro de x horas (aleatorio)</h2>
+        <script>
+            var hora = new Date()
+            hora = hora.getTime() + parseInt((Math.random()*24)) * 60 * 60 * 1000;
+            document.write(saludar(hora));
+        </script>
+
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

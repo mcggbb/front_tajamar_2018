@@ -1,0 +1,80 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Objeto Vuelo - JS</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+    <style>
+        b {
+        color: maroon;}
+    </style>
+    <script>
+        var oVuelo = {
+            airline: "Oceanic",
+            number: 815,
+            departure: {
+                IATA: "SYD",
+                time: "2004-09-22 14:55",
+                city: "Sydney"
+            },
+            arrival: {
+                IATA: "LAX",
+                time: "2004-09-23 10:42",
+                city: "Los Angeles"
+            },
+            muestraDatos: function() {
+                document.write("<ul>");
+                for (var i in this) {
+                    // if (i == "muestraDatos") { continue; }
+                    if (typeof this[i] === "function") { continue; }  // No muestra métodos
+                    if (typeof this[i] === "object") {
+                        document.write("<li>" + i + "<ul>")
+                        for (var j in this[i]) {
+                            document.write("<li>" + j + " : <b>" + this[i][j] + "</b></li>")
+                        }
+                        document.write("</li></ul>")
+                    }
+                    else { document.write("<li>" + i + " : <b>" + this[i] + "</b></li>") };
+                }
+                document.write("</ul>");
+            } // Fin del método
+            }; // Fin del objeto
+    </script>
+
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Objetos Vuelo
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+        <h2>Objeto creado como literal, incluyendo un método</h2>
+        <p>
+            <script>
+                oVuelo.muestraDatos();
+            </script>
+        </p>
+    </article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

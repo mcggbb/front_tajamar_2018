@@ -1,0 +1,106 @@
+﻿<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Palindromo - JS</title>
+    <meta name="description" content="Ejercicios de JavaScript">
+    <meta name="author" content="Alejandro">
+    <link rel="shortcut icon" href="fav_icon.png">
+    <link rel="stylesheet" href="javascript_001.css">
+  	
+ 		<script>
+   			//<!--
+				function palindromo(cadena) {
+
+					// Pasar a minusculas la cadena
+					var cadenaOriginal = cadena.toLowerCase();
+
+					// Convertir la cadena en un array
+					var letrasEspacios = cadenaOriginal.split("");
+
+					// Eliminar los espacios en blanco (este paso es demasiado largo ya que no se utiliza la funcion "replace")
+					var cadenaSinEspacios = "";
+					for (i in letrasEspacios) {
+						if (letrasEspacios[i] != " ") {
+							cadenaSinEspacios += letrasEspacios[i];
+						}
+					}
+
+					var letras = cadenaSinEspacios.split("");
+					var letrasReves = cadenaSinEspacios.split("").reverse();
+
+					// Este paso tambien es muy largo porque no se utiliza la sentencia "break"
+					var iguales = true;
+					for (i in letras) {
+						if (letras[i] == letrasReves[i]) {
+							// Todo bien
+						} else {
+							// Alguna letra es distinta, por lo que ya no es un palindromo
+							iguales = false;
+						}
+					}
+					return iguales;
+				}
+			//-->
+        </script>
+</head>
+
+ <body>
+ <!--body  onload="alert('Página cargada - OK');"-->
+ 
+  	<header>
+  	<h1>Palíndromos
+    </h1>
+	</header>
+  	<aside>
+  		<noscript>
+   	 		<p>
+     			<em>Si lees este mensaje es que tu navegador no 
+					ejecuta guiones JavaScript</em>
+    		</p>
+  		</noscript>
+	</aside>
+	<article>
+ 		<script>
+   			//<!--	
+			var sFrase = prompt();
+			
+			var esPali = palindromo(sFrase);
+			
+			sFrase = "La cadena \"" + sFrase + "\" \n";
+			
+			if (esPali) {
+				sFrase += " es un palíndromo";
+			} else {
+				sFrase += " no es un palíndromo";
+			}
+			document.write(sFrase);
+			document.write("<br>");
+
+			var sFrase = "La ruta nos aporto otro paso natural";
+			
+			var esPali = palindromo(sFrase);
+
+			sFrase = "La cadena \"" + sFrase + "\" \n";
+			
+			if (esPali) {
+				sFrase += " es un palíndromo";
+			} else {
+				sFrase += " no es un palíndromo";
+			}
+			document.write(sFrase);
+			document.write("<br>");
+
+
+			//-->
+        </script>
+	</article>
+	<footer>
+		<p>
+			&copy; Copyright  by Alejandro L. Cerezo
+		</p>
+	</footer>
+ </body>
+
+</html>

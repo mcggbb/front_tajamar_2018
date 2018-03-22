@@ -34,20 +34,5 @@ function myFunction() {
 }
 //myFunction();
 
-let oPrueba = {
-	precio: 12,
-	iva : 1.16,
-}; 
-
-let calculaIvaAsiync_Arrow = function () {
-    setTimeout(() => {
-        let precioFinal = this.precio * this.iva;
-        console.log(`
-            Usando una arrow function: 
-            El precio final es ${precioFinal}
-        `);
-    }, 1000)
-}
-oPrueba.calculaIvaAsiync_Arrow();
 
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        /**
+         * El objeto sessionStorage
+         * El sessionStorageobjeto es igual al objeto localStorage, excepto que almacena los datos para una sola sesión. 
+         * Los datos se eliminan cuando el usuario cierra la pestaña específica del navegador.
+         * El siguiente ejemplo cuenta la cantidad de veces que un usuario ha hecho clic en un botón, en la sesión actual:
+         */
+        function clickCounter() {
+            if (typeof (Storage) !== "undefined") {
+                if (sessionStorage.clickcount) {
+                    sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+                } else {
+                    sessionStorage.clickcount = 1;
+                }
+                document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s) in this session.";
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p>
+        <button onclick="clickCounter()" type="button">Click me!</button>
+    </p>
+    <div id="result"></div>
+    <p>Click the button to see the counter increase.</p>
+    <p>Close the browser tab (or window), and try again, and the counter is reset.</p>
+</body>
+
+</html>

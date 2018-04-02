@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="result"></div>
+    <script>
+        // Check browser support
+        /**
+         * El objeto localStorage almacena los datos sin fecha de caducidad. 
+         * Los datos no se eliminarán cuando se cierre el navegador, y estarán disponibles al día siguiente, a la semana o al año.
+         * La sintaxis para eliminar el elemento localStorage "lastname" es la siguiente: localStorage.removeItem("lastname");
+         */
+        if (typeof (Storage) !== "undefined") {
+            // Store
+            localStorage.setItem("lastname", "Smith");
+            //También se puede escribir así: localStorage.lastname = "Smith";
+            // Retrieve
+            document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+            //También se puede escribir así: document.getElementById("result").innerHTML = localStorage.lastname;
+        } else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+        }
+    </script>
+</body>
+</html>

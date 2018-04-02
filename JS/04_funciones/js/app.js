@@ -34,5 +34,10 @@ function myFunction() {
 }
 //myFunction();
 
+function add() {
+    var counter = 0;
+    (function () { counter += 1; })();
+    return counter;
+}
 
-
+console.log(add());

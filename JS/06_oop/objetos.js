@@ -27,7 +27,7 @@ let o = {
 //o.metodo()
 
 let oNuevoObjeto = new miFuncion();
-console.log(typeof oNuevoObjeto)
+//console.log(typeof oNuevoObjeto)
 
 //Patrón de invocación Apply
 let obj = {

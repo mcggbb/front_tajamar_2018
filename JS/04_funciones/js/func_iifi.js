@@ -24,10 +24,10 @@ setTimeout(() => {
 }, 3000);
 
 // Funciones de flecha sin parámetros son más fáciles de visualizar
-/* setTimeout(() => {
+setTimeout(() => {
     console.log('Yo voy primero');
     setTimeout(() => {
         // deeper code
         console.log('Yo voy despues');
     }, 1);
-}, 1); */
+}, 1);

@@ -1,3 +1,4 @@
+"use strict"; //Sistema obliga que la semántica a respetar el lenguaje
 (function () {
 
     function app() {

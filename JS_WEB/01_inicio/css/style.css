@@ -1,56 +1,24 @@
-
-*,
-*::before,
-*::after,
-*:before,
-*:after {
+*, *::after, *::before, *:after, *:before {
     box-sizing: border-box;
 }
-/******************** Contenedor ****************************/
 body {
-    font-family:Arial, Helvetica, sans-serif;
-    /* color:#9e9999; */
-    background-color: #d4d3d3;
+    background-color: bisque;
+    margin: 3rem;
 }
-
-.container {
-    width: 90%;
-    max-width: 1000;
-    min-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    min-height: 100vh; /* Controla el tamaño del dispositivo a mostrar - viewport height*/
-}
-
 main {
     min-height: 60vh;
 }
-
-/********************************* Footer ****************************/
-footer {
-    background-color:#e5e5e5;
-    text-align:center;
-    padding:10px;
-    margin-top:7px;
+main button{
+    color: maroon
 }
-
-#botonSaludar {
-    color: lightcoral;
-}
-
 
 main div {
     margin-bottom: 2rem;
     margin-top: 2rem;
     padding: 1rem;
 }
-main button {
-    color: mediumslateblue;
-}
 
-main div.output{
-    border: 1px solid springgreen;
-    width: 25%;
+main div.output {
+    border: 1px solid lightsteelblue;
+    width: 50%;
 }

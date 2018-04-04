@@ -1,31 +1,30 @@
-"use strict"; //Sistema obliga que la semántica a respetar el lenguaje
-
-/**
- * Elementos que vamos a usar
- */
-
 (function () {
 
     function app() {
         let oDom = {
-            eBotonSaludar: document.querySelector("#btonSaludo")
+            eBotonSaluadar: document.querySelector('#btnSaludar')
         }
-
-        let saludar = (oE, user = "amigo") => {
-            console.log(`Hola ${user}`);
+    
+        let saludo = (oE, user = 'amigo') => {
+            console.log(`Hola ${user}`)
+            console.log(oE)
         }
-
-        //función anónima
-        //oDom.eBotonSaludar.onclick = () => saludar(event, "San Miguel")
-        oDom.eBotonSaludar.addEventListener(
-            'click',
-            () => saludar(event, "San Miguel 2")
-        )
-        //oDom.eBotonSaludar.removeEventListener('click') //Para anular el click
-
+    
+        // document.getElementById('btnSaludar')
+        // oDom.eBotonSaluadar.onclick = () => saludo(event, "Pepe")
+        oDom.eBotonSaluadar.addEventListener(
+                    'click',
+                    () => saludo(event, "Pepe"))
+        // oDom.eBotonSaluadar.removeEventListener('click',)    
     }
 
-    window.addEventListener('load', app);
-    //document.addEventListener("DOMContentLoaded", inicioScript, false); //otra forma de hacerlo
+    window.addEventListener('load', app)
+    // document.addEventListener('DOMContentLoaded', app)
 })()
+
+
+
+
+
+
 

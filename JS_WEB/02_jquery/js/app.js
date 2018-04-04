@@ -1,40 +1,26 @@
-"use strict"; //Sistema obliga que la semántica a respetar el lenguaje
-/* 
-$(document).ready(
-    function(){
-}); */
+/* $(document).ready(
+    function() {
+}) */
 
-$(function () {
+$(function() {
     let oDom = {
-        eBotonSaludar: $("#btnSaludar"),
-        eBotonBorrar: $("#btnBorrar"),
+        eBotonSaludar: $('#btnSaludar'),
+        eBotonBorrar: $('#btnBorrar'),
         eInputName: $('#inpName'),
-        eOutSaludo: $('#outSaludar')
+        eOutSaludo: $('#outSaludo')
     }
 
-    /**
-         * Manejador del evento click del botón btnSaludar
-         */
-    function saludar() {
-        let user = oDom.eInputName.val();
-        console.log(user);
-        oDom.eOutSaludo.html(`<p>Hola a ${user}</p>`);
+    function saludar () {
+        let user = oDom.eInputName.val()
+        console.log(user)
+        oDom.eOutSaludo.html(`<p>Hola ${user}</p>`)
     }
 
-    /**
-     * Manejador del evento click del botón btnBorrar
-     */
     function borrar() {
-        oDom.eInputName.val("");
-        oDom.eOutSaludo.html("");
+        oDom.eInputName.val('')
+        oDom.eOutSaludo.html('')
     }
 
-    oDom.eBotonSaludar.on('click', saludar)
-    oDom.eBotonBorrar.on('click', borrar)
-
-
-
-
-});
-
-
+    oDom.eBotonSaludar.on('click', saludar) 
+    oDom.eBotonBorrar.on('click', borrar) 
+})

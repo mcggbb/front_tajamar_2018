@@ -7,7 +7,7 @@ appMayusculas = {
         'se mezclan Mayúsculas y minúsculas',
         'todas las letras son Mayúsculas',
         'todas las letras son minúsculas'],
-    aCadenas : [
+    aCadenas: [
         'HOLA PEPE',
         'hola pepe',
         'Hola Pepe'

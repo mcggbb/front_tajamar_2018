@@ -16,12 +16,12 @@
             }
         }
 
-        document.getElementById("linkedin").onclick = function () { cambiaLista('linkedin') }
-        document.getElementById("twitter").onclick = function () { cambiaLista('twitter') }
-        document.getElementById("facebook").onclick = function () { cambiaLista('facebook') }
-        document.getElementById("flickr").onclick = function () { cambiaLista('flickr') }
-        document.getElementById("tumblr").onclick = function () { cambiaLista('tumblr') }
-        document.getElementById("instagram").onclick = function () { cambiaLista('instagram') }
+        document.querySelector("#linkedin").onclick = function () { cambiaLista('linkedin') }
+        document.querySelector("#twitter").onclick = function () { cambiaLista('twitter') }
+        document.querySelector("#facebook").onclick = function () { cambiaLista('facebook') }
+        document.querySelector("#flickr").onclick = function () { cambiaLista('flickr') }
+        document.querySelector("#tumblr").onclick = function () { cambiaLista('tumblr') }
+        document.querySelector("#instagram").onclick = function () { cambiaLista('instagram') }
     };
 
     //document.addEventListener("DOMContentLoaded", main)

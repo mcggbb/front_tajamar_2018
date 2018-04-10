@@ -1,52 +1,59 @@
 "use strict"; //Sistema obliga que la semántica a respetar el lenguaje
 
-/* class Acorden {
-    constructor (panel) {
-        this.oPanel = document.getElementById(panel);
-        this.oElemento = this.oPanel.querySelector("div"); //texto adicional
-        this.oEnlace = this.oPanel.querySelector("p") //enlace	
-        this.oEnlace.addEventListener("click", this.mostrar.bind(this))
+/**
+ * @author San Miguel
+ * @class Acordeon
+ * 
+ * Ejemplo: https://codepen.io/sureshrkm/pen/ZbzBpr
+ * Ejemplo: https://jsfiddle.net/drj3m5tg/1/
+ * 
+ */
+
+class Acordeon {
+    constructor() {
+        console.log("entra")
+        this.accordion = document.querySelector("accordion");
+        this.panel = document.querySelector("panel");
+
+        //this.accordion.addEventListener("click", this.mostrar.bind(this));
+        this.mostrar();
     }
-	
-    mostrar () {
-        this.oElemento.classList.toggle("oculto")
-        if (this.oElemento.className.indexOf("oculto") >=0 ) {
-           this.oEnlace.innerHTML = "Seguir leyendo";
-        }
-        else { // elemento.className incluye "visible")
-            this.oEnlace.innerHTML = "Ocultar artículo";
+
+    mostrar() {
+        for (let i = 0; i < this.accordion.length; i++) {
+            // remove open class for all elements
+            this.removeOpen();
+            // add active class to clicked element and open class to next slibling
+            this.activarOpen();
+        };
+    }
+
+    // Poner
+    activarOpen() {
+        const toggleResult = this.classList.toggle('active');
+        this.nextElementSibling.classList.toggle('panel-open', toggleResult);
+    }
+
+    // remove open class for all elements
+    removeOpen() {
+        for (let i = 0; i < this.panel.length; i++) {
+            this.panel[i].classList.remove('panel-open');
         }
     }
 }
 
 function init() {
-    let n = document.querySelectorAll('.article_long').length
+    console.log("init")
+    new Acordeon();
+    /* let n = document.querySelector("accordion").length;
+    console.log("cuantos accordion hay ", n)
     let aTextos = []
-    for (let i = 0; i < n; i++) {
-        aTextos.push(new Texto("panel"+(i+1)))
-    }
+    for (let i = 1; i <= n; i++) {
+        console.log("bucle init")
+        aTextos.push(new Acordeon("accordion"+i))
+    }*/
 }
 
+window.addEventListener("load", init);
 
 
-    function main() {
-
-
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
-                } else {
-                    panel.style.display = "block";
-                }
-            });
-        }
-    }
-    window.addEventListener("load", init)
-
-})(); */

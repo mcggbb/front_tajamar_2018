@@ -10,3 +10,6 @@
     width: 40%;
     min-width: 10rem;
 }
+.ocultar {
+    display: none;
+}

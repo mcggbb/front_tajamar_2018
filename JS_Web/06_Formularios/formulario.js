@@ -1,185 +1,174 @@
-//"use strict"; //Sistema obliga que la semántica a respetar el lenguaje
-
+'use strict';
 export class Formulario {
     constructor() {
         this.datos = {
-            nombre: "",
-            apellido: "",
-            email: "",
-            passwd: "",
-            datos: "",
+            nombre: '',
+            apellido: '',
+            email: '',
+            passwd: '',
+            datos: '',
             isOk: false,
             isOk2: false,
-            turno: "",
+            turno: '',
             curso: {}
         }
-
-        this.accederDom();
-        this.definirManejadores();
+        this.accederDom()
+        this.definirManejadores()
     }
 
     accederDom() {
-        this.domBtnSaludar = document.querySelector("#btnSaludar");
-        this.domBtnEnviar = document.querySelector("#btnEnviar");
-        this.domBtnBorrar = document.querySelector("#btnBorrar");
-        //Datos Personales
-        this.domInputNombre = document.querySelector("#nombre");
-        this.domInputApellido = document.querySelector("#apellido");
-        this.domInputEmail = document.querySelector("#email");
-        this.domInputPasswd = document.querySelector("#passwd");
-        //Otros datos
-        this.domAreaDatos = document.querySelector("#datos");
-        //Turno - radio
-        this.domRadioTurno = document.querySelectorAll("'[name='Turno']");
-        //checkbox
-        this.domCbxIsOk  = document.querySelector("#isOk");
-        this.domCbxIsOk2  = document.querySelector("#isOk2");
-        //Selección de opciones
-        this.domSelectCurso = document.querySelector("#curso");
-        //Presentar en la capa
-        this.domDivResultado = document.querySelector("#resultado")
+        this.domBtnSaludar = document.querySelector('#btnSaludar')
+        this.domBtnEnviar = document.querySelector('#btnEnviar')
+        this.domBtnBorrar = document.querySelector('#btnBorrar')
+        this.domInpNombre = document.querySelector('#nombre')
+        this.domInpApellido = document.querySelector('#apellido')
+        this.domInpEmail = document.querySelector('#email')
+        this.domInpPasswd = document.querySelector('#passwd')
+        this.domAreaDatos = document.querySelector('#datos')
+        this.domRadioTurno = document.querySelectorAll('[name="turno"]')
+        // this.domRadioTurno = document.getElementsByName(turno)
+        this.domCbxIsOk = document.querySelector('#isOk')
+        this.domCbxIsOk2 = document.querySelector('#isOk2')
+        this.domSelectCurso = document.querySelector('#curso')
+        this.domDivResultados = document.querySelector('#resultados')
+        this.domFieldAcedemic = document.querySelector('#acedemic')
     }
- 
 
-    //Manejadores de botones
     definirManejadores() {
         this.domBtnSaludar.addEventListener('click', this.saludar.bind(this))
         this.domBtnEnviar.addEventListener('click', this.enviar.bind(this))
         this.domBtnBorrar.addEventListener('click', this.borrar.bind(this))
+        //this.domCbxIsOk.addEventListener('change', this.completar.bind(this)) //OJO
+        this.domSelectCurso.addEventListener('change', this.cargarAsignaturas.bind(this))
     }
 
     saludar() {
-        console.log("Hola amigos");
+        console.log('Hola amigos')
     }
 
     enviar(ev) {
-        ev.preventDefault();
+        ev.preventDefault()
         this.recogerDatos()
-        console.dir(this.datos)
-        this.presentarDatos();
+        this.presentarDatos()
+    }
+
+    borrar() {
+    }
+
+    completar() {
+        // this.domFieldAcedemic.disabled = !this.domFieldAcedemic.disabled
+        this.domFieldAcedemic.classList.toggle('ocultar')
+        if (this.domFieldAcedemic.classList.contains('ocultar')) {
+            this.domRadioTurno[0].checked = true
+            this.domSelectCurso.selectedIndex = 0
+        }
     }
 
     recogerDatos() {
-        this.datos.nombre = this.domInputNombre.value
-        this.datos.apellido = this.domInputApellido.value
-        this.datos.email = this.domInputEmail.value
-        this.datos.passwd = this.domInputPasswd.value
+        this.datos.nombre = this.domInpNombre.value
+        this.datos.apellido = this.domInpApellido.value
+        this.datos.email = this.domInpEmail.value
+        this.datos.passwd = this.domInpPasswd.value
         this.datos.datos = this.domAreaDatos.value
-        this.datos.turno = this.procesarRadio(this.domRadioTurno);
-        this.datos.isOk = this.domCbxIsOk.checked;
-        this.datos.isOk2 = this.domCbxIsOk2.checked;
-        this.datos.curso = this.procesarSelect(this.domSelectCurso);
+        this.datos.turno = this.procesarRadio(this.domRadioTurno)
+        this.datos.isOk = this.domCbxIsOk.checked
+        this.datos.isOk2 = this.domCbxIsOk2.checked
+        this.datos.curso = this.procesarSelect(this.domSelectCurso)
     }
 
     procesarRadio(nodo) {
-        let valor; //Valores que tienen son mañana, tarde, noche
-
+        let value
         nodo.forEach((item) => {
             if (item.checked) {
-                valor = item.value;
+                value = item.value
             }
-            //console.log(item.checked, item.value)
         })
-        return valor;
+        return value //"mañana" "tarde"  "noche"
     }
 
-    procesarSelect(nodo){
-        let index = nodo.selectedIndex;
+    procesarSelect(nodo) {
+        let index = nodo.selectedIndex
         return {
             code: nodo.options[index].value,
             text: nodo.options[index].textContent
         }
     }
 
-    presentarDatos(){
-        let resultadoHTML = 
-        `<h2>Resultados</h2>
+    presentarDatos() {
+        let resultadoHTML =
+            `<h2>Resultados</h2>
         <ul>
-        <li>Nombres: ${this.datos.nombre}</li>
-        <li>Apellidos: ${this.datos.apellido}</li>
-        <li>Email: ${this.datos.email}</li>
-        <li>Contraseña: ${this.datos.passwd}</li>
-        <li>Datos extras: ${this.datos.datos}</li>
-        <li>Aceptadas condiciones: ${this.datos.isOk ? "SI" : "NO"}</li>
-        <li>Aceptadas condiciones 2: ${this.datos.isOk2 ? "SI" : "NO"}</li>
-        <li>Turno: ${this.datos.turno}</li>
-        <li>Curso: ${this.datos.curso.text}</li>
+            <li>Nombre: ${this.datos.nombre}</li>
+            <li>Apellido: ${this.datos.apellido}</li>
+            <li>e-Mail: ${this.datos.email}</li>
+            <li>Contraseña: ${this.datos.passwd}</li>
+            <li>Datos extra: ${this.datos.datos}</li>
+            <li>Aceptadas condiciones: ${this.datos.isOk ? 'Si' : 'No'}</li>
+            <li>Aceptadas condiciones 2 ${this.datos.isOk2 ? 'Si' : 'No'}</li>
+            <li>Turno: ${this.datos.turno}</li>
+            <li>Curso: ${this.datos.curso.text}</li>
         </ul>
         `
-        this.domDivResultado.innerHTML = resultadoHTML
-    }
-
-    borrar() {
+        this.domDivResultados.innerHTML = resultadoHTML
 
     }
 
-     /**
-     * Cargar un SELECT dependiendo de otro SELECT - Javascript - DOM
+    /**
+     * Cargar un SELECT de cursos y su vez, según elección de asignaturas de cada curso
      */
-    
 
-    //Función para cargar las provincias al campo "select".
-    cargarCursos() {
-        //Inicializamos el array.
-        let curso = ["Desarrollador Front", "Diseño Web", "Servidores", "BBDD"];
-        //Ordena el array alfabeticamente.
-        curso.sort();
-        //Pasamos a la funcion addOptions(el ID del select, las provincias cargadas en el array).
-        addOptions("curso", curso);
+    /*  cargarCursos() {
+         var listaCursos = ["Desarrollo Front", "Diseño Web", "Servidores Node", "SQL"];
+         listaCursos.sort();
+         addOptions("curso", listaCursos);
+     }
+ 
+     //Función para agregar opciones a un <select>.
+     addOptions(domElement, listaCursos) {
+         var selector = document.getElementsByName(domElement)[0];
+         for (curso in listaCursos) {
+             var opcion = document.createElement("option");
+             opcion.text = listaCursos[curso];
+             // Añadimos un value a los option para hacer mas facil escoger los pueblos
+             opcion.value = listaCursos[curso].toLowerCase()
+             selector.add(opcion);
+         }
+     } */
+
+    cargarAsignaturas() {
+        // Objeto de Cursos con asignaturas
+        var listaAsignaturas = {
+            front: ["html5", "css3", "Javascript", "JQuery"],
+            web: ["Dreamweaver", "Visual Studio Code", "Bloc Note"],
+            node: ["php", "hibernate", "spring", "Java"],
+            sql: ["sql"]
+        }
+
+        var cursos = document.getElementById('curso')
+        var asignaturas = document.getElementById('asignatura')
+        var cursoSeleccionado = cursos.value
+
+        // Se limpian las asignaturas
+        asignaturas.innerHTML = '<option value="">Seleccione un Asignatura...</option>'
+
+        if (cursoSeleccionado !== '') {
+            // Se seleccionan las asignaturas y se ordenan
+            cursoSeleccionado = listaAsignaturas[cursoSeleccionado]
+            cursoSeleccionado.sort()
+
+            // Insertamos las asignaturas
+            cursoSeleccionado.forEach(function (asignatura) {
+                let opcion = document.createElement('option')
+                opcion.value = asignatura
+                opcion.text = asignatura
+                asignaturas.add(opcion)
+            });
+        }
+
     }
 
-
-//Función para agregar opciones a un <select>.
- addOptions(domElement, array) {
-    let selector = document.getElementsByName(domElement)[0];
-    //Recorremos el array.
-    for (curso in array) {
-        var opcion = document.createElement("option");
-        opcion.text = array[curso];
-        selector.add(opcion);
-    }
-}
-
-
-//Función para cargar los pueblos al campo "select" dependiendo de la provincia elegida.
-cargarPueblos() {
-    //Objeto de provincias con los pueblos correspondientes.
-    let listaAsignaturas = {
-        desarrollador: ["HTML5", "CSS3", "Javascript"],
-        diseñador: ["Moviles", "Tablet", "Portátiles"],
-        servidores: ["Node", "Cics", "Db2"],
-        bbdd: ["SQL", "SQL Server"]
-    }
-
-    //Declaramos un array donde guardamos todos los elementos de tipo id=provincias e id=pueblos.
-    let cursos = document.getElementById('curso');
-    let asignaturas = document.getElementById('asignatura');
-    
-    //Tomamos como provinciaSeleccionada, el valor del id provincia (var provincias).
-    let cursosSeleccionada = cursos.value;
-
-    //Se limpian los asignaturas.
-    asignaturas.innerHTML = '<option value="">Seleccione un Pueblo...</option>'
-
-    //Si existe provinciaSeleccionada...
-    if(cursosSeleccionada !== ""){
-        //Se seleccionan los asignaturas y se ordenan.
-        cursosSeleccionada = listaAsignaturas[cursosSeleccionada];
-        cursosSeleccionada.sort();
-
-        //Insertamos los asignaturas mediante un FOR.
-        provinciaSeleccionada.forEach(function(asignatura){
-            var opcion = document.createElement('option');
-            opcion.value = asignatura;
-            opcion.text = asignatura;
-            asignaturas.add(opcion);
-        });
-    }
- }
-
-   
+    // Iniciar la carga de provincias solo para comprobar que funciona
+    //cargarCursos();
 
 }
-
-
 

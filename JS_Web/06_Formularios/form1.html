@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Formulario</title>
     <link rel="stylesheet" href="./form1.css">
-    <script src="./form_app1.js" type="module"></script>
+    <script src="./form_app_1.js" type="module"></script>
+
 </head>
 
 <body>
@@ -20,15 +21,16 @@
                 <legend>Datos personales</legend>
                 <div class="control-group">
                     <label for="nombre">Escribe tu nombre</label>
-                    <input type="text" name="nombre" id="nombre" maxlength="20" autofocus required minlength="2">
+                    <input type="text" name="nombre" id="nombre" maxlength="20" autofocus>
+                    <!-- required minlength="2" -->
                 </div>
                 <div class="control-group">
                     <label for="apellido">Escribe tu apellido</label>
-                    <input type="text" name="apellido" id="apellido" placeholder="Escribe tus apellidos" required>
+                    <input type="text" name="apellido" id="apellido" placeholder="Escribe tus apellidos">
                 </div>
                 <div class="control-group">
                     <label for="email">Escribe tu correo</label>
-                    <input type="email" name="email" id="email" placeholder="Escribe tus correo" required>
+                    <input type="email" name="email" id="email" placeholder="Escribe tus correo">
                 </div>
                 <div class="control-group">
                     <label for="passwd">Escribe tu contraseña</label>
@@ -40,7 +42,7 @@
                 <textarea name="datos" id="datos" cols="30" rows="10" placeholder="No te molestes en añadir nada"></textarea>
             </fieldset>
             <fieldset>
-                <legend>Datos academicos</legend>
+                <legend>Conformidad</legend>
                 <div class="check-group">
                     <input type="checkbox" name="isOk" id="isOk">
                     <label for="isOk">Estoy deacuero con las
@@ -51,6 +53,10 @@
                     <input type="checkbox" name="isOk2" id="isOk2">
                     <label for="isOk2">También estoy deacuero con ....</label>
                 </div>
+            </fieldset>
+            <!-- <fieldset id="acedemic" class="ocultar"> OJO -->
+            <fieldset id="acedemic">
+                <legend>Datos academicos</legend>
                 <legend>Que turno quieres</legend>
                 <div class="radio-group">
                     <input type="radio" name="turno" id="mañana" value="mañana" checked>
@@ -63,31 +69,19 @@
                 <div class="control-group">
                     <label for="curso">Selecciona un curso</label>
                     <select name="curso" id="curso">
-                        <!-- Hay que terminar los options -->
-                        <!-- 
-                        Eliminado de value la llamada a la función,
-                        si eso funciona lo desconocía, y aunque 
-                        lo haga es totalmente innecesario, 
-                        lo correcto es usar el evento onchange 
-                        -->
-                        <option value="">Seleccione una curso...</option>
+                        <option value="">Seleccione un Curso...</option>
+                        <option value="front">Desarrollo Front</option>
+                        <option value="web">Diseño Web</option>
+                        <option value="node">Servidores Node</option>
+                        <option value="sql">SQL</option>
                     </select>
                 </div>
-
                 <div class="control-group">
-                    <label for="asignaturas">Selecciona un curso</label>
-                    <select name="asignaturas" id="asignaturas">
-                        <!-- Hay que terminar los options -->
-                        <!-- 
-                            Eliminado de value la llamada a la función,
-                            si eso funciona lo desconocía, y aunque 
-                            lo haga es totalmente innecesario, 
-                            lo correcto es usar el evento onchange 
-                        -->
+                    <label for="asignatura">Selecciona una Asignatura</label>
+                    <select name="asignatura" id="asignatura">
                         <option value="">Seleccione una Asignatura...</option>
                     </select>
                 </div>
-
 
             </fieldset>
             <div class="control-group">
@@ -100,7 +94,8 @@
                 <input type="hidden" name="state" value="0">
             </div>
         </form>
-        <div id="resultado" class="resultado"></div>
+        <div id="resultados" class="resultados">
+        </div>
     </main>
 </body>
 

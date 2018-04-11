@@ -16,17 +16,21 @@
         <h1>Ejemplo de formulario</h1>
     </header>
     <main>
-        <form action="" method="GET">
+        <!-- <form action="" method="get" id="form1" onsubmit="return false"> -->
+        <form action="" method="get" id="form1" onsubmit="return false">
             <fieldset>
                 <legend>Datos personales</legend>
                 <div class="control-group">
                     <label for="nombre">Escribe tu nombre</label>
-                    <input type="text" name="nombre" id="nombre" maxlength="20" autofocus>
-                    <!-- required minlength="2" -->
+                    <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" minlength="2" maxlength="20" autofocus>
                 </div>
                 <div class="control-group">
                     <label for="apellido">Escribe tu apellido</label>
                     <input type="text" name="apellido" id="apellido" placeholder="Escribe tus apellidos">
+                </div>
+                <div class="control-group">
+                    <label for="fecha">Fecha de Nacimiento</label>
+                    <input type="date" name="fecha" id="fecha" placeholder="Fecha Nacimiento">
                 </div>
                 <div class="control-group">
                     <label for="email">Escribe tu correo</label>
@@ -35,6 +39,10 @@
                 <div class="control-group">
                     <label for="passwd">Escribe tu contraseña</label>
                     <input type="password" name="passwd" id="passwd" placeholder="Escribe tus contraseña">
+                </div>
+                <div class="control-group">
+                    <label for="passwd2">Escribe de nuevo la contraseña</label>
+                    <input type="password" name="passwd2" id="passwd2" placeholder="Escribe tus contraseña">
                 </div>
             </fieldset>
             <fieldset>
@@ -45,17 +53,17 @@
                 <legend>Conformidad</legend>
                 <div class="check-group">
                     <input type="checkbox" name="isOk" id="isOk">
-                    <label for="isOk">Estoy deacuero con las
+                    <label for="isOk">Estoy deacuerdo con las
                         <a href="condiciones.html">condiciones</a>
                     </label>
                 </div>
                 <div class="check-group">
                     <input type="checkbox" name="isOk2" id="isOk2">
-                    <label for="isOk2">También estoy deacuero con ....</label>
+                    <label for="isOk2">También estoy deacuerdo con ....</label>
                 </div>
             </fieldset>
-            <!-- <fieldset id="acedemic" class="ocultar"> OJO -->
-            <fieldset id="acedemic">
+            <fieldset id="acedemic" class="ocultar">
+                <!-- <fieldset id="acedemic"> -->
                 <legend>Datos academicos</legend>
                 <legend>Que turno quieres</legend>
                 <div class="radio-group">
@@ -79,7 +87,7 @@
                 <div class="control-group">
                     <label for="asignatura">Selecciona una Asignatura</label>
                     <select name="asignatura" id="asignatura">
-                        <option value="">Seleccione una Asignatura...</option>
+                        <option value="">Seleccione una...</option>
                     </select>
                 </div>
 

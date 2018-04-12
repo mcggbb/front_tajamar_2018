@@ -58,6 +58,7 @@ export class Formulario {
         this.domSelectCurso.addEventListener('change', this.cargarAsignaturas.bind(this))
     }
 
+    //leer fichero en local
     leerFichero() {
         console.log("Leer Fichero...")
         //console.log("Nombre:" + this.datos.nombre)
@@ -72,6 +73,7 @@ export class Formulario {
 
     }
 
+    //Guardar fichero en local
     guardarFichero() {
         this.recogerDatos()
         console.log("Guardar Fichero...")
@@ -86,12 +88,12 @@ export class Formulario {
         }
     }
 
-    validarContraseña() {
+    validarPassword() {
         /** 
          * https://developer.mozilla.org/es/docs/HTML/HTML5/Validacion_de_restricciones
         */
-        var msg = "";
-        if (this.domInpPasswd.value != this.domInpPasswd2.value) {
+        let msg = "";
+        if (this.domInpPasswd.value !== this.domInpPasswd2.value) {
             msg = "Las contraseñas no son iguales"
         }
         this.domInpPasswd2.setCustomValidity(msg)
@@ -99,12 +101,12 @@ export class Formulario {
 
     enviar(ev) {
         console.log(ev)
-        this.validarContraseña();
+        this.validarPassword();
         this.recogerDatos()
         this.presentarDatos()
         if (!this.isLeido) {
             ev.preventDefault(); //Se salta las validaciones y evita el evento del formulario subtmit
-            localStorage.clear();
+            //localStorage.clear();
         }
     }
 
@@ -163,7 +165,7 @@ export class Formulario {
             <li>Fecha de Nacimiento: ${this.datos.nacimiento}</li>
             <li>e-Mail: ${this.datos.email}</li>
             <li>Contraseña: ${this.datos.passwd}</li>
-            <li>Contraseña 2: ${this.datos.passwd}</li>
+            <li>Contraseña 2: ${this.datos.passwd2}</li>
             <li>Datos extra: ${this.datos.datos}</li>
             <li>Aceptadas condiciones: ${this.datos.isOk ? 'Si' : 'No'}</li>
             <li>Aceptadas condiciones 2: ${this.datos.isOk2 ? 'Si' : 'No'}</li>

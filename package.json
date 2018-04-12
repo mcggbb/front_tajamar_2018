@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "node_modules\\.bin\\http-server",
+    "start_json": ".\\node_modules\\.bin\\json-server --watch db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +28,7 @@
   },
   "homepage": "https://github.com/mcggbb/front_tajamar_2018#readme",
   "dependencies": {
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.1",
+    "json-server": "^0.12.1"
   }
 }

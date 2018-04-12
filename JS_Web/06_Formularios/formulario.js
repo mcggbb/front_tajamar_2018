@@ -25,9 +25,9 @@ export class Formulario {
     accederDom() {
         this.domFormulario = document.querySelector('#form1')
         //Botones
-        this.domBtnSaludar = document.querySelector('#btnSaludar')
-        //this.domBtnEnviar = document.querySelector('#btnEnviar')
-        //this.domBtnBorrar = document.querySelector('#btnBorrar')
+        this.domBtnLeerFichero = document.querySelector('#btnLeerFichero')
+        this.domBtnGuardarFichero = document.querySelector('#btnGuardarFichero')
+
         //Datos personales
         this.domInpNombre = document.querySelector('#nombre')
         this.domInpApellido = document.querySelector('#apellido')
@@ -51,18 +51,42 @@ export class Formulario {
     }
 
     definirManejadores() {
-        //this.domBtnSaludar.addEventListener('click', this.saludar.bind(this))
+        this.domBtnLeerFichero.addEventListener('click', this.leerFichero.bind(this))
+        this.domBtnGuardarFichero.addEventListener('click', this.guardarFichero.bind(this))
         this.domFormulario.addEventListener('submit', this.enviar.bind(this))
-        //this.domBtnBorrar.addEventListener('click', this.borrar.bind(this))
         this.domCbxIsOk.addEventListener('change', this.completar.bind(this)) //OJO
         this.domSelectCurso.addEventListener('change', this.cargarAsignaturas.bind(this))
     }
 
-    saludar() {
-        console.log('Hola amigos')
+    leerFichero() {
+        console.log("Leer Fichero...")
+        //console.log("Nombre:" + this.datos.nombre)
+        if (typeof (Storage) !== "undefined") {
+            //document.querySelector("#nombre").value = localStorage.getItem("nombre");
+            this.domInpNombre.value = localStorage.getItem("nombre");
+            this.domInpApellido.value = localStorage.getItem("apellido");
+            this.domInpEmail.value = localStorage.getItem("email");
+        } else {
+            // Lo siento. Su web no soporta Web storage...
+        }
+
     }
 
-    validarContraseña(){
+    guardarFichero() {
+        this.recogerDatos()
+        console.log("Guardar Fichero...")
+        //Antes de usar el almacenamiento web, verifique el soporte del navegador para localStorage y sessionStorage:
+        if (typeof (Storage) !== "undefined") {
+            localStorage.setItem("nombre", this.datos.nombre);
+            localStorage.setItem("apellido", this.datos.apellido);
+            localStorage.setItem("email", this.datos.email);
+        } else {
+            // Lo siento. Su web no soporta Web storage...
+            console.log("Lo siento. Su web no soporta guardarFichero")
+        }
+    }
+
+    validarContraseña() {
         /** 
          * https://developer.mozilla.org/es/docs/HTML/HTML5/Validacion_de_restricciones
         */
@@ -78,17 +102,13 @@ export class Formulario {
         this.validarContraseña();
         this.recogerDatos()
         this.presentarDatos()
-        //this.domFormulario.submit();
         if (!this.isLeido) {
             ev.preventDefault(); //Se salta las validaciones y evita el evento del formulario subtmit
+            localStorage.clear();
         }
     }
 
-    borrar() {
-    }
-
     completar() {
-        // this.domFieldAcedemic.disabled = !this.domFieldAcedemic.disabled
         this.domFieldAcedemic.classList.toggle('ocultar')
         if (this.domFieldAcedemic.classList.contains('ocultar')) {
             this.domRadioTurno[0].checked = true

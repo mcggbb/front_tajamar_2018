@@ -17,16 +17,16 @@
     </header>
     <main>
         <!-- <form action="" method="get" id="form1" onsubmit="return false"> -->
-        <form action="" method="get" id="form1" onsubmit="return false">
+        <form action="" method="get" id="form1">
             <fieldset>
                 <legend>Datos personales</legend>
                 <div class="control-group">
                     <label for="nombre">Escribe tu nombre</label>
-                    <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" minlength="2" maxlength="20" autofocus>
+                    <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" minlength="2" maxlength="20" required autofocus>
                 </div>
                 <div class="control-group">
                     <label for="apellido">Escribe tu apellido</label>
-                    <input type="text" name="apellido" id="apellido" placeholder="Escribe tus apellidos">
+                    <input type="text" name="apellido" id="apellido" placeholder="Escribe tus apellidos" required>
                 </div>
                 <div class="control-group">
                     <label for="fecha">Fecha de Nacimiento</label>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="control-group">
                     <label for="email">Escribe tu correo</label>
-                    <input type="email" name="email" id="email" placeholder="Escribe tus correo">
+                    <input type="email" name="email" id="email" placeholder="Escribe tus correo" required>
                 </div>
                 <div class="control-group">
                     <label for="passwd">Escribe tu contraseña</label>
@@ -93,12 +93,12 @@
 
             </fieldset>
             <div class="control-group">
-                <button type="button" id="btnSaludar">Saludar</button>
-                <!-- <input type="button" value="Saludar"> -->
-                <button type="submit" id="btnEnviar">Enviar</button>
-                <!-- <input type="submit" value="Enviar"> -->
+                <button type="button" id="btnLeerFichero">Leer Fichero</button>
+                <button type="button" id="btnGuardarFichero">Guardar Fichero</button>
                 <button type="reset" id="btnBorrar">Borrar</button>
-                <!-- <input type="reset" value="Borrar"> -->
+                <button type="submit" id="btnEnviar">Enviar</button>
+
+
                 <input type="hidden" name="state" value="0">
             </div>
         </form>

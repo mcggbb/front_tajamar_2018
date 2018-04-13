@@ -24,3 +24,13 @@ body {
     margin-bottom: 2rem;
     min-height: 100vh; /* Controla el tamaño del dispositivo a mostrar - viewport height*/
 }
+
+/** Imagen de carga de datos  */
+.mystyle {
+    width: 100%;
+    padding: 25px;
+    background-color: coral;
+    color: white;
+    font-size: 25px;
+    box-sizing: border-box;
+}

@@ -53,25 +53,21 @@ function app() {
     }
 
     //Por último, la función descargaArchivo() simplemente realiza una llamada a la función cargaContenido() con los parámetros adecuados
-   /*  function descargaArchivo() {
-        cargaContenido("http://localhost/holamundo.txt", "GET", muestraContenido);
-    } */
+    /*  function descargaArchivo() {
+         cargaContenido("http://localhost/holamundo.txt", "GET", muestraContenido);
+     } */
 
     /**************************************************************************************************************/
-    //OJO ---> Una solicitud POST, PUT o PATCH debe incluir un Content-Type: application/json
-    
-    
     document.querySelector("#btnAjax").addEventListener('click', getDatos)
     document.querySelector("#btnAjaxItem").addEventListener('click', getDatos)
     document.querySelector("#btnAjaxBorrar").addEventListener('click', deleteDatos)
     document.querySelector("#btnAjaxAdd").addEventListener('click', postDatos) // Añadir
     document.querySelector("#btnAjaxModif").addEventListener('click', putDatos) //Modif
 
-
     function getDatos(ev) {
         let metodo = 'GET'
         let url = ''
-        
+
         if (ev.target.id === 'btnAjax') {
             url = 'http://localhost:3000/posts'
         } else { // ev.target.id == 'btnAjaxItem'
@@ -93,7 +89,7 @@ function app() {
         }
         let metodo = 'POST'
         let url = 'http://localhost:3000/posts'
-        
+
         cargaContenido(url, metodo, JSON.stringify(data), muestraContenido);
     }
 
@@ -101,6 +97,7 @@ function app() {
         let metodo = 'DELETE'
         let url = ''
         let item = document.querySelector('#itemB').value
+
         if (item) {
             url = 'http://localhost:3000/posts/' + item
         } else {
@@ -110,8 +107,6 @@ function app() {
         cargaContenido(url, metodo, null, muestraContenido);
     }
 
-    
-
     function putDatos(ev) {
         let data = {
             title: "Neuromante",
@@ -120,23 +115,15 @@ function app() {
         let metodo = 'PUT'
         let url = ''
         let item = document.querySelector('#itemM').value
+
         if (item) {
             url = 'http://localhost:3000/posts/' + item
         } else {
             return
         }
+
         cargaContenido(url, metodo, JSON.stringify(data), muestraContenido);
     }
-
-
-
-
-
-
-
-
-
-
 }
 
 window.addEventListener('load', app, false)

@@ -1,11 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "San Miguel"
-    },
-    {
       "id": 2,
       "title": "json-server",
       "author": "Mahou"
@@ -24,15 +19,29 @@
       "title": "El Señor de los Anillos",
       "author": "JRR Tolkien",
       "id": 5
-    }
-  ],
-  "comments": [
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "El Señor de los Anillos",
+      "author": "JRR Tolkien",
+      "id": 6
+    },
+    {
+      "title": "El Señor de los Anillos",
+      "author": "JRR Tolkien",
+      "id": 7
+    },
+    {
+      "title": "El Señor de los Anillos",
+      "author": "JRR Tolkien",
+      "id": 8
+    },
+    {
+      "title": "El Señor de los Anillos",
+      "author": "JRR Tolkien",
+      "id": 9
     }
   ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }

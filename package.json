@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node_modules\\.bin\\http-server",
-    "start_json": ".\\node_modules\\.bin\\json-server --watch db.json",
+    "start_json": "node_modules\\.bin\\json-server --watch db.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

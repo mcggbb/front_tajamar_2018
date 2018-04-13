@@ -7,18 +7,17 @@
     <meta name=”keywords” content="formularios">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mi ciudad llamada Madrid</title>
+    <title>Mi Ajax</title>
     <!-- icon que aparece en la pestaña del navegador -->
     <!-- <link rel="shortcut icon" href="logoCM.png" type="image/x-icon"> -->
     <!-- estilos a aplicar -->
     <link rel="stylesheet" href="./style.css">
-    <script src="ajax.js"></script>
+    <script src="./ajax.js"></script>
    
 </head>
 
 <body>
-    <!-- mensaje de aviso al usuario indicándole que debería activar JavaScript para disfrutar completamente de la 
-        página. -->
+    <!-- mensaje de aviso al usuario indicándole que debería activar JavaScript para disfrutar completamente de la página. -->
     <noscript>
         <p>Bienvenido a Mi Sitio</p>
         <p>La página que estás viendo requiere para su funcionamiento el uso de JavaScript. Si lo has deshabilitado intencionadamente,
@@ -43,9 +42,23 @@
 
         <!-- Parte principal -->
         <main>
-            <pre id="demo"></pre>
-            <input type="number" name="item" id="item" min="1" max="2" required>
-            <button type="button" id="btnAjax">Pedir datos</button><button type="button" id="btnAjaxItem">Pedir Item</button>
+            <div>
+                <button type="button" id="btnAjax">Pedir datos</button>
+                <input type="number" name="item" id="item" max=5 min=1>
+                <button type="button" id="btnAjaxItem">Pedir item</button>  
+            </div>
+            <div>
+                <button type="button" id="btnAjaxAdd">Añadir datos</button>
+                <input type="number" name="itemM" id="itemM" max=5 min=1>
+                <button type="button" id="btnAjaxModif">Modificar item</button>  
+            </div>
+             <div>
+                <input type="number" name="itemB" id="itemB">
+                <button type="button" id="btnAjaxBorrar">Borrar item</button>     
+             </div>
+             
+            <div><pre id="demo"></pre></div>
+          
         </main>
 
         <!-- Pie de página -->

@@ -15,11 +15,47 @@
     <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../lib/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css"> -->
     <script>
-        window.onerror = function (msg, url, line) {
+        /* window.onerror = function (msg, url, line) {
             document.writeln("Message : " + msg);
             document.writeln("url : " + url);
             document.writeln("Line number : " + line);
-        } 
+        }  */
+
+        function main() {
+            const Q1 = "Introduce un número entero",
+                TEXT1 = "El número introducido es ",
+                TEXT2 = "Eso no es un número",
+                PAR = "<b>par</b>",
+                IMPAR = "<b>impar</b>";
+
+            function parImpar(numero) {
+                if (isNaN(parseInt(numero))) {
+                    return -1; // No es un número
+                } else {
+                    return (numero % 2);
+                    // 1 si Numero impar & 0 Numero par
+                }
+            } // Fin de la función parImpar
+
+            function muestraDatos(codigo) {
+                varcTexto;
+                switch (codigo) {
+                    case 0:
+                        cTexto = TEXT1 + PAR;
+                        break;
+                    case 1:
+                        cTexto = TEXT1 + IMPAR;
+                        break;
+                    case -1:
+                        cTexto = TEXT2;
+                        break;
+                }
+                document.write(cTexto);
+            } // Fin de la función 
+
+        }
+
+        //window.addEventListener("load", main)
     </script>
 
 </head>
@@ -50,10 +86,49 @@
 
         <!-- Parte principal -->
         <main>
+            <script>
+                //function main() {
+                const Q1 = "Introduce un número entero",
+                    TEXT1 = "El número introducido es ",
+                    TEXT2 = "Eso no es un número",
+                    PAR = "<b>par</b>",
+                    IMPAR = "<b>impar</b>";
 
-            <form> 
-                <input type = "button" value = "Click Me" onclick = "myFunc();" /> 
-             </form>
+                function parImpar(numero) {
+                    if (isNaN(parseInt(numero))) {
+                        return -1; // No es un número
+                    } else {
+                        return (numero % 2);
+                        // 1 si Numero impar & 0 Numero par
+                    }
+                } // Fin de la función parImpar
+
+                function muestraDatos(codigo) {
+                    var cTexto;
+                    switch (codigo) {
+                        case 0:
+                            cTexto = TEXT1 + PAR;
+                            break;
+                        case 1:
+                            cTexto = TEXT1 + IMPAR;
+                            break;
+                        case -1:
+                            cTexto = TEXT2;
+                            break;
+                    }
+                    document.write(cTexto);
+                } // Fin de la función 
+                //muestraDatos(parImpar(prompt(Q1))
+
+
+
+
+            </script>
+
+            <form>
+
+                <input type="button" value="Click Me" onclick="muestraDatos(parImpar(prompt(Q1)))" >
+            </form>
 
 
 

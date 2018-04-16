@@ -1,8 +1,4 @@
-*,
-*::before,
-*::after,
-*:before,
-*:after {
+*, *::before, *::after, *:before, *:after {
     box-sizing: border-box;
 }
 
@@ -14,42 +10,68 @@
     margin-right: auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    min-height: 100vh; /* Controla el tamaño del dispositivo a mostrar - viewport height*/
+    min-height: 100vh;
+    /* Controla el tamaño del dispositivo a mostrar - viewport height*/
 }
 
-.accordion {
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
+ul.acorh, ul.acorh * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ul.acorh {
+    margin: 10px auto;
+    padding: 0;
+    list-style: none;
     width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
+    font-size: 18px;
 }
 
-.active, .accordion:hover {
-    background-color: #ccc;
+ul.acorh li {
+    list-style: none;
 }
 
-.accordion:after {
-    content: '\002B';
-    color: #777;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
+ul.acorh li a {
+    display: block;
+    padding: 10px 10px 10px 20px;
+    background: #333;
+    color: #eee;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #666;
+    text-decoration: none;
+    box-sizing: border-box;
 }
 
-.active:after {
-    content: "\2212";
-}
-
-.panel {
-    padding: 0 18px;
-    background-color: white;
+ul.acorh li ul {
     max-height: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
+    transition: .3s all ease-in;
+}
+
+ul.acorh li li a {
+    padding: 10px 10px 10px 40px;
+    background: #999;
+    color: #000;
+    font-size: 16px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+ul.acorc li li:last-child a {
+    border-bottom: 0;
+}
+
+ul.acorh li:hover ul {
+    max-height: 300px;
+    transition: .3s all ease-in;
+}
+
+ul.acorh li a:hover {
+    background: #666;
+    color: #fff;
 }

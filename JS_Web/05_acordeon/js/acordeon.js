@@ -13,15 +13,9 @@ class Acordeon {
     constructor(accordion) {
         //console.log("entra")
         this.oAccordion = document.getElementById(accordion);
-        this.oPanel = this.oAccordion.querySelector(".panel");//Texto adicional
-        //this.mostrar();
-        //this.accordion.addEventListener("click", this.mostrar.bind(this));
-
-        //this.oArticulo = document.getElementById(articulo);
-        //this.oElemento = this.oArticulo.querySelector("span"); //texto adicional
-        //this.oEnlace = this.oArticulo.querySelector("a") //enlace	
+        this.oPanel = this.oAccordion.querySelectorAll(".panel");//Texto adicional
         this.oEnlace.addEventListener("click", this.mostrar.bind(this))
-	
+
     }
 
     mostrar() {

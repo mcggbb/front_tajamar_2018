@@ -69,19 +69,18 @@
                         <fieldset>
                             <legend>Curso</legend>
                             <div class="radio-group">
-                                <input type="radio" name="curso" id="web" value="web" checked>
+                                <input type="radio" name="curso" id="web" value="Programador Web" required>
                                 <label for="web">Programador Web</label>
                                 <br>
-                                <input type="radio" name="curso" id="sistemas" value="sistemas">
+                                <input type="radio" name="curso" id="sistemas" value="Programador de Sistemas">
                                 <label for="sistemas">Programador de Sistemas</label>
                                 <br>
-                                <input type="radio" name="curso" id="objetos" value="objetos">
+                                <input type="radio" name="curso" id="objetos" value="Programador Objetos">
                                 <label for="objetos">Programador Objetos</label>
                             </div>
                             <div class="control-group">
                                 <label for="asignatura"></label>
-                                <select name="asignatura" id="asignatura" multiple>
-                                    
+                                <select name="asignatura" id="asignatura" size="5" required>
                                 </select>
                             </div>
                         </fieldset>
@@ -102,11 +101,11 @@
                             <legend>Datos Personales</legend>
                             <div class="control-group">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" minlength="2" maxlength="20" required>
+                                <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" minlength="2" maxlength="20" >
                             </div>
                             <div class="control-group">
                                 <label for="apellido">Primer apellido</label>
-                                <input type="text" name="apellido" id="apellido" placeholder="Escribe tu primer apellido" required>
+                                <input type="text" name="apellido" id="apellido" placeholder="Escribe tu primer apellido" >
                             </div>
                             <div class="control-group">
                                 <label for="apellido2">Segundo apellido</label>

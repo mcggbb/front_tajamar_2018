@@ -1,5 +1,4 @@
 'use strict';
-import { listaAsignaturas } from './asignaturas.js'
 
 export class Formulario {
     constructor() {
@@ -10,8 +9,7 @@ export class Formulario {
             passwd2: '', //Repetición de clave de acceso
 
             //Curso
-            curso: {},
-            asignatura: {},
+            curso: '',
 
             //Datos Personales
             nombre: '', //Nombre
@@ -37,10 +35,15 @@ export class Formulario {
             fechaActual: '' //Fecha de hoy y otros
         }
 
+        this.asignaturas = [
+            ["html5", "css3", "Javascript", "JQuery"],
+            ["Dreamweaver", "Visual Studio Code", "Bloc Note"],
+            ["php", "hibernate", "spring", "Java"]
+        ]
+
         this.isLeido = false
         this.accederDom()
         this.definirManejadores()
-        this.recogerDatos()
         this.mostrarFechaActual()
     }
 
@@ -54,8 +57,8 @@ export class Formulario {
         this.domInpPasswd2 = document.querySelector('#passwd2')
 
         //Selección Curso y asignatura
-        this.domRadioCurso = document.querySelector('[name="curso"]')
-        this.domSelectAsignatura = document.querySelector('#asignatura')
+        this.oDomCurso = document.querySelectorAll('[name="curso"]')
+        this.oDomAsignaturas = document.querySelector('#asignatura')
 
         //Datos personales
         this.domInpNombre = document.querySelector('#nombre')
@@ -64,7 +67,7 @@ export class Formulario {
 
         //Fecha de nacimiento
         this.domInpFechaNacimientoDay = document.querySelector('#day')
-        this.domInpFechaNacimientoMonth = document.querySelector('#month') 
+        this.domInpFechaNacimientoMonth = document.querySelector('#month')
         this.domInpFechaNacimientoYear = document.querySelector('#year')
 
         //Aficiones
@@ -87,16 +90,17 @@ export class Formulario {
     //Definimos los manejadores de evento para los 
     definirManejadores() {
         this.domFormulario.addEventListener('submit', this.enviar.bind(this))
-        this.domRadioCurso.addEventListener('click', this.cargarAsignaturas.bind(this))
-     
+        this.oDomCurso.forEach(item => {
+            item.addEventListener('change', this.mostrarAsignaturas.bind(this))
+        })
     }
 
     validarPassword() {
         if (document.getElementById("passwd").value != document.getElementById("passwd2").value) {
-            document.getElementById("camposPassword").innerHTML= "Las passwords deben de coincidir";
+            document.getElementById("camposPassword").innerHTML = "Las passwords deben de coincidir";
             return false;
         } else {
-            document.getElementById("camposPassword").innerHTML= "";
+            document.getElementById("camposPassword").innerHTML = "";
             return true;
         }
     }
@@ -117,8 +121,12 @@ export class Formulario {
         this.datos.passwd2 = this.domInpPasswd2.value
 
         //Curso
-        this.datos.curso = this.procesarRadio(this.domRadioCurso)
-        //this.datos.asignatura = this.procesarSelect(this.domSelectAsignatura)
+        this.oDomCurso.forEach(item => {
+            if (item.checked === true) {
+                this.datos.curso = item.id;
+            }
+        })
+        this.datos.asignaturas = this.procesarSelect(this.oDomAsignaturas)
 
         //Datos Pesonales
         this.datos.nombre = this.domInpNombre.value
@@ -145,7 +153,13 @@ export class Formulario {
     }
 
     procesarRadio(nodo) {
-        console.log(nodo.value);
+        let value
+        nodo.forEach((item) => {
+            if (item.checked) {
+                value = item.value
+            }
+        })
+        return value
     }
 
     procesarSelect(nodo) {
@@ -159,32 +173,24 @@ export class Formulario {
     /**
      * Cargar un SELECT de cursos y su vez, según elección de asignaturas de cada curso
      */
-    cargarAsignaturas(ev) {
-        // Objeto de Cursos con asignaturas está en un fichero aparte llamado asignaturas.js
-        console.log("cargarAsignaturas: " + ev.target.value)
-        //let cursos = document.getElementById('curso')
-        let cursos = document.querySelector('[name="curso"]')
-        let asignaturas = document.getElementById('asignatura')
-        let cursoSeleccionado = cursos.value
-        console.log("Curso seleccionado: " + cursos.value)
+    mostrarAsignaturas(ev) {
+        let pulsado = ev.target.checked
 
-        // Se limpian las asignaturas
-        asignaturas.innerHTML = ''
-
-        if (cursoSeleccionado !== '') {
-            // Se seleccionan las asignaturas y se ordenan
-            cursoSeleccionado = listaAsignaturas[cursoSeleccionado]
-            //cursoSeleccionado.sort()
-
-            // Insertamos las asignaturas
-            cursoSeleccionado.forEach(asignatura => {
-                let opcion = document.createElement('option')
-                opcion.value = asignatura
-                opcion.text = asignatura
-                asignaturas.add(opcion)
-            });
+        let array
+        for (let i = 0; i < this.oDomCurso.length; i++) {
+            if (this.oDomCurso[i].checked === pulsado) {
+                array = this.asignaturas[i]
+            }
         }
 
+        let asig = ''
+
+        array.forEach(item => {
+            asig += `<option value="${item}">${item}</option>`
+
+        })
+
+        this.oDomAsignaturas.innerHTML = asig
     }
 
     /**
@@ -197,8 +203,8 @@ export class Formulario {
             <li>Contraseña: ${this.datos.passwd}</li>
             <li>Contraseña 2: ${this.datos.passwd2}</li>
             
-            <li>Curso: ${this.datos.curso.text}</li>       
-            <li>Asignatura: ${this.datos.asignatura.text}</li>
+            <li>Curso: ${this.datos.curso}</li>       
+            <li>Asignatura: ${this.datos.asignaturas.text}</li>
             
             <li>Nombre: ${this.datos.nombre}</li>
             <li>Primer apellido: ${this.datos.apellido}</li>
@@ -224,14 +230,14 @@ export class Formulario {
 
     mostrarFechaActual() {
         let fechaActual = new Date();
-        let days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
-        let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+        const DAYS = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+        const MESES = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
         let mostrarFecha = ''
 
         document.getElementById("fechaActual").innerHTML = `
-        ${days[fechaActual.getDay()]} día 
+        ${DAYS[fechaActual.getDay()]} día 
         ${fechaActual.getDate()} de 
-        ${meses[fechaActual.getMonth()]} del año 
+        ${MESES[fechaActual.getMonth()]} del año 
         ${fechaActual.getFullYear()}`;
     }
 }

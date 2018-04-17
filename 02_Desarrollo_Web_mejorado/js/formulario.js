@@ -67,8 +67,6 @@ export class Formulario {
         this.domInpFechaNacimientoMonth = document.querySelector('#month') 
         this.domInpFechaNacimientoYear = document.querySelector('#year')
 
-
-
         //Aficiones
         this.domCbxIsMusica = document.querySelector('#isMusica')
         this.domCbxIsViajar = document.querySelector('#isViajar')
@@ -89,8 +87,8 @@ export class Formulario {
     //Definimos los manejadores de evento para los 
     definirManejadores() {
         this.domFormulario.addEventListener('submit', this.enviar.bind(this))
-        //this.domRadioCurso.addEventListener('click', this.cargarAsignaturas.bind(this))
-        this.domRadioCurso.addEventListener('change', this.procesarRadio)
+        this.domRadioCurso.addEventListener('click', this.cargarAsignaturas.bind(this))
+     
     }
 
     validarPassword() {
@@ -148,9 +146,6 @@ export class Formulario {
 
     procesarRadio(nodo) {
         console.log(nodo.value);
-
-        
-
     }
 
     procesarSelect(nodo) {

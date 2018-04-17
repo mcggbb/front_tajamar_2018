@@ -11,66 +11,84 @@
     <!-- icon que aparece en la pestaña del navegador -->
     <!-- <link rel="shortcut icon" href="logoCM.png" type="image/x-icon"> -->
     <!-- estilos a aplicar -->
-    <link rel="stylesheet" href="../lib/estilos/ciudad-madrid.css">
+    <!-- <link rel="stylesheet" href="../lib/estilos/ciudad-madrid.css">
     <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../lib/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../lib/fontawesome-free-5.0.8/web-fonts-with-css/css/fontawesome-all.min.css"> -->
     <style>
     </style>
     <script>
         /* Si es posible, puede agregar su secuencia de comandos a la página por código, 
         después de que la página se haya cargado: */
-        window.onload = function () {
+        /* window.onload = function () {
             var element = document.createElement("script");
             element.src = "util.js";
             element.defer = "true";
             document.body.appendChild(element);
-        };
+        }; */
     </script>
 
 </head>
 
 <body>
-    <!-- mensaje de aviso al usuario indicándole que debería activar JavaScript para disfrutar completamente de la 
+    <form name="doublecombo" id "doublecombo" action="" method="get">
+        <!-- mensaje de aviso al usuario indicándole que debería activar JavaScript para disfrutar completamente de la 
         página. -->
-    <noscript>
-        <p>Bienvenido a Mi Sitio</p>
-        <p>La página que estás viendo requiere para su funcionamiento el uso de JavaScript. Si lo has deshabilitado intencionadamente,
-            por favor vuelve a activarlo.
-        </p>
-    </noscript>
+        <noscript>
+            <p>Bienvenido a Mi Sitio</p>
+            <p>La página que estás viendo requiere para su funcionamiento el uso de JavaScript. Si lo has deshabilitado intencionadamente,
+                por favor vuelve a activarlo.
+            </p>
+        </noscript>
 
 
-    <!-- Contenedor -->
-    <div class="container">
+        <!-- Contenedor -->
+        <div class="container">
 
-        <!-- Cabecera de la página -->
-        <header>
+            <!-- Cabecera de la página -->
+            <header>
 
-        </header>
+            </header>
 
-        <!-- Menú de navegación-->
-        <nav>
+            <!-- Menú de navegación-->
+            <nav>
 
-        </nav>
+            </nav>
 
-        <!-- Parte principal -->
-        <main>
+            <!-- Parte principal -->
+            <main>
+                <script type="text/javascript">
+                    function activar(obj) {
+                        frm = document.forms[0];
+                        for (i = 0; ele = frm.getElementsByTagName('select')[i]; i++)
+                            ele.style.display = (ele == frm[obj]) ? 'block' : 'none';
+                    }
+                </script>
+                <input type="radio" name="rad" onclick="activar('pc')" checked="checked" />
+                <input type="radio" name="rad" onclick="activar('disco')" />
+                <select name="pc" style="display:block">
+                    <option>pc 1</option>
+                    <option>pc 2</option>
+                </select>
+                <select name="disco" style="display:none">
+                    <option>disco 1</option>
+                    <option>disco 2</option>
+                </select>
+            </main>
 
-        </main>
-
-        <!-- Pie de página -->
-        <footer>
-            <p>Publicado por: San Miguel</p>
-            <p>Información de contacto:
-                <a href="mailto:miguel17370@gmail.com">miguel17370@gmail.com</a>.</p>
-            <p>
-                <i class="far fa-copyright"></i> 2018. Reservado derechos de autor</p>
-        </footer>
-    </div>
-    <!-- Una alternativa es usar defer = "true" en la etiqueta del script. El atributo defer especifica que 
+            <!-- Pie de página -->
+            <footer>
+                <p>Publicado por: San Miguel</p>
+                <p>Información de contacto:
+                    <a href="mailto:miguel17370@gmail.com ">miguel17370@gmail.com</a>.</p>
+                <p>
+                    <i class="far fa-copyright "></i> 2018. Reservado derechos de autor</p>
+            </footer>
+        </div>
+    </form>
+    <!-- Una alternativa es usar defer = "true " en la etiqueta del script. El atributo defer especifica que 
         el script se debe ejecutar después de que la página haya terminado de analizarse, pero solo funciona 
         para scripts externos. -->
-    <!-- <script defer="true" src="util.js"></script> -->
+    <!-- <script defer="true " src="util.js "></script> -->
 </body>
 
 </html>

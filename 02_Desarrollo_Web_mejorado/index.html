@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="formularios">
+    <meta name=”keywords” content="formularios">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desarrollo Web. Unidad 2. Ejercicio práctico.</title>
+    <!-- icon que aparece en la pestaña del navegador -->
+    <!-- <link rel="shortcut icon" href="" type="image/x-icon"> -->
+    <!-- estilos a aplicar -->
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/form_app_1.js" type="module"></script>
+
+</head>
+
+<body>
+    <!-- mensaje de aviso al usuario indicándole que debería activar JavaScript para disfrutar completamente de la página. -->
+    <noscript>
+        <p>Bienvenido a Mi Sitio</p>
+        <p>La página que estás viendo requiere para su funcionamiento el uso de JavaScript. Si lo has deshabilitado intencionadamente,
+            por favor vuelve a activarlo.
+        </p>
+    </noscript>
+
+
+    <!-- Contenedor -->
+    <div class="container">
+
+        <!-- Cabecera de la página -->
+        <header>
+
+        </header>
+
+        <!-- Menú de navegación-->
+        <nav>
+
+        </nav>
+
+        <!-- Parte principal -->
+        <main>
+            <form action="" method="get" id="form1">
+                <fieldset>
+                    <legend>Datos del alumno</legend>
+                    <!-- Identificación -->
+
+                    <div class="left">
+
+                        <fieldset>
+                            <legend>Identificación</legend>
+                            <div class="control-group">
+                                <label for="email">Cuenta de correo</label>
+                                <input type="email" name="email" id="email" >
+                            </div>
+                            <div class="control-group">
+                                <label for="passwd">Introduzca su clave de acceso</label>
+                                <input type="password" name="passwd" id="passwd" required>
+                            </div>
+                            <div class="control-group">
+                                <label for="passwd2">Repita la clave de acceso</label>
+                                <input type="password" name="passwd2" id="passwd2" required>
+                            </div>
+                            <div id="camposPassword"></div>
+                        </fieldset>
+
+                        <!-- Curso -->
+                        <fieldset>
+                            <legend>Curso</legend>
+                            <div class="radio-group">
+                                <input type="radio" name="curso" id="web" value="web" checked>
+                                <label for="web">Programador Web</label>
+                                <br>
+                                <input type="radio" name="curso" id="sistemas" value="sistemas">
+                                <label for="sistemas">Programador de Sistemas</label>
+                                <br>
+                                <input type="radio" name="curso" id="objetos" value="objetos">
+                                <label for="objetos">Programador Objetos</label>
+                            </div>
+                            <div class="control-group">
+                                <label for="asignatura"></label>
+                                <select name="asignatura" id="asignatura" multiple>
+                                    
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <!-- Botones de envío -->
+                        <fieldset>
+                            <div class="control-group">
+                                <button type="submit" name="btnEnviar" id="btnEnviar">Enviar datos</button>
+                                <button type="reset" name="btonBorrar" id="btnBorrar">Restablecer valores</button>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="right">
+
+                        <!-- Datos Personales -->
+                        <fieldset>
+                            <legend>Datos Personales</legend>
+                            <div class="control-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre" minlength="2" maxlength="20" >
+                            </div>
+                            <div class="control-group">
+                                <label for="apellido">Primer apellido</label>
+                                <input type="text" name="apellido" id="apellido" placeholder="Escribe tu primer apellido" >
+                            </div>
+                            <div class="control-group">
+                                <label for="apellido2">Segundo apellido</label>
+                                <input type="text" name="apellido2" id="apellido2" placeholder="Escribe tu segundo apellido">
+                            </div>
+
+                            <!-- Fecha de nacimiento  -->
+                            <fieldset>
+                                <legend>Fecha de nacimiento</legend>
+                                <div class="control-group">
+                                    <label for="day">Día</label>
+                                    <input type="number" name="day" id="day" min="0" max="31" maxlength="2" size="2">
+                                    
+                                    <label for="month">Mes</label>
+                                    <input type="number" name="month" id="month" min="0" max="12" maxlength="2" size="2">
+                                    
+                                    <label for="year">Año</label>
+                                    <input type="number" name="year" id="year" minlength="4" maxlength="4" min="1970" size="4">
+                                </div>
+                            </fieldset>
+                        </fieldset>
+
+                        <!-- Aficiones -->
+                        <fieldset>
+                            <legend>Aficiones</legend>
+                            <div class="check-group">
+                                <input type="checkbox" name="isMusica" id="isMusica">
+                                <label for="isMusica">Música</label>
+
+                                <input type="checkbox" name="isViajar" id="isViajar">
+                                <label for="isViajar">Viajar</label>
+
+                                <input type="checkbox" name="isPintura" id="isPintura">
+                                <label for="isPintura">Pintura</label>
+
+                                <input type="checkbox" name="isFotografia" id="isFotografia">
+                                <label for="isFotografia">Fotografía</label>
+                            </div>
+
+                            <div class="check-group">
+                                <input type="checkbox" name="isCine" id="isCine">
+                                <label for="isCine">Cine</label>
+
+                                <input type="checkbox" name="isLectura" id="isLectura">
+                                <label for="isLectura">Lectura</label>
+
+                                <input type="checkbox" name="isDeporte" id="isDeporte">
+                                <label for="isDeporte">Deporte</label>
+
+                                <input type="checkbox" name="isBaile" id="isBaile">
+                                <label for="isBaile">Baile</label>
+                            </div>
+                        </fieldset>
+
+                        <!-- Apartado de fechas -->
+                        <fieldset>
+                            <div class="control-group">
+                                Hoy es
+                                <span id="fechaActual"></span>
+                                <br>La fecha dada es Viernes día 18 de Julio del año 1975.
+                                <br> Dentro de una semana será Jueves día 20 de Junio del año 2013
+                            </div>
+                        </fieldset>
+                    </div>
+
+                </fieldset>
+            </form>
+        </main>
+
+        <!-- Mostrar los datos a enviar -->
+        <div id="resultados" class="resultados"></div>
+
+        <!-- Pie de página -->
+        <footer>
+            <p>Publicado por: San Miguel</p>
+            <p>Información de contacto:
+                <a href="mailto:miguel17370@gmail.com">miguel17370@gmail.com</a>.</p>
+            <p>
+                <i class="far fa-copyright"></i> 2018. Reservado derechos de autor</p>
+        </footer>
+    </div>
+    <!-- Una alternativa es usar defer = "true" en la etiqueta del script. El atributo defer especifica que 
+        el script se debe ejecutar después de que la página haya terminado de analizarse, pero solo funciona 
+        para scripts externos. -->
+    <!-- <script defer="true" src="util.js"></script> -->
+</body>
+
+</html>

@@ -93,10 +93,12 @@ export class Formulario {
          * https://developer.mozilla.org/es/docs/HTML/HTML5/Validacion_de_restricciones
         */
         let msg = "";
+
         if (this.domInpPasswd.value !== this.domInpPasswd2.value) {
             msg = "Las contraseñas no son iguales"
         }
-        this.domInpPasswd2.setCustomValidity(msg)
+        return this.domInpPasswd2.setCustomValidity(msg)
+
     }
 
     enviar(ev) {

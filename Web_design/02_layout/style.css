@@ -1,0 +1,49 @@
+*, *::before, *::after, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.header, .footer {
+    background-color: brown;
+    color: rgb(255, 255, 255);
+    min-height: 6rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center
+}
+
+.main {
+    display: flex;
+}
+
+.lado {
+    padding: 3rem;
+    border: 1px solid;
+}
+
+.lado_izda {
+    /* width: 10%; */
+    order: 1;
+  /*   flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 1 */
+    flex: 4 1 auto;
+}
+
+.lado_dcha {
+   /*  width: 10%; */
+    order: 2;
+    /* flex-grow: 1;
+    flex-shrink: 3; 
+    flex-basis: 1; */
+    flex: 1 1 auto;
+}
+
+figure {
+    float: left;
+    padding: 1rem;
+}
+
+img {
+    width: 100%;
+}

@@ -1,0 +1,24 @@
+*, *::before, *::after, *:before, *:after {
+    box-sizing: border-box;
+}
+
+main {
+    background-color: paleturquoise;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+div {
+    font-size: 10rem;
+    padding: 5rem;
+    background-color: slategrey;
+    border: 1px solid slateblue;
+}
+div:nth-of-type(3){
+    font-size: 16rem;
+
+}

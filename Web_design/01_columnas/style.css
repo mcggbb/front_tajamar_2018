@@ -1,0 +1,60 @@
+*, *::before, *::after, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.main {
+    overflow: auto;
+    min-height: 60vh;
+}
+
+.columnas_2 {
+    -webkit-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 3rem;
+    column-gap: 3rem;
+}
+
+.columnas_2 p:nth-of-type(1) {
+    margin-top: 0px;
+}
+
+.header, .footer {
+    background-color: brown;
+    color: rgb(255, 255, 255);
+    min-height: 6rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.tabla {
+    display: table;
+}
+
+.fila {
+    display: table-row;
+}
+
+.columna {
+    display: table-cell;
+    width: 50%;
+    padding: 2rem;
+    background-color: rgb(204, 189, 189);
+}
+
+.lado {
+    float: left;
+    padding: 3rem;
+}
+
+.lado_izda, .lado_derecha {
+    float: left;
+}
+
+.lado_izda {
+    width: 80%
+}
+
+.lado_derecha {
+    width: 20%;
+}

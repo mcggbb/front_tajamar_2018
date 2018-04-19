@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="..//node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script> -->
+    <style src="./style.css"></style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <h1>My First Bootstrap Page</h1>
+        <p>Resize this responsive page to see the effect!</p>
+    </div>
+
+    <div class="container">
+        <h2>Horizontal form: control states</h2>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Focused</label>
+                <div class="col-sm-2">
+                    <input class="form-control" id="focusedInput" type="text" value="Click to focus...">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="disabledInput" class="col-sm-2 control-label">Disabled</label>
+                <div class="col-sm-10">
+                    <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
+                </div>
+            </div>
+            <fieldset disabled>
+                <div class="form-group">
+                    <label for="disabledTextInput" class="col-sm-2 control-label">Disabled input and select list (Fieldset disabled)</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="disabledSelect" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <select id="disabledSelect" class="form-control">
+                            <option>Disabled select</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group has-success has-feedback">
+                <label class="col-sm-2 control-label" for="inputSuccess">Input with success and glyphicon</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputSuccess">
+                    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                </div>
+            </div>
+            <div class="form-group has-warning has-feedback">
+                <label class="col-sm-2 control-label" for="inputWarning">Input with warning and glyphicon</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputWarning">
+                    <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+                </div>
+            </div>
+            <div class="form-group has-error has-feedback">
+                <label class="col-sm-2 control-label" for="inputError">Input with error and glyphicon</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputError">
+                    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                </div>
+            </div>
+        </form>
+
+        <hr>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Column 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+            </div>
+        </div>
+        <hr>
+        <div class="btn-group">
+            <button type="button" class="btn">Basic</button>
+            <button type="button" class="btn btn-default">Default</button>
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-success">Success</button>
+            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-warning">Warning</button>
+            <button type="button" class="btn btn-danger">Danger</button>
+            <button type="button" class="btn btn-link">Link</button>
+        </div>
+        <hr>
+        <h2>Button Styles</h2>
+        <button type="button" class="btn">Basic</button>
+        <button type="button" class="btn btn-default">Default</button>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-link">Link</button>
+        <hr>
+        <h2>Basic Table</h2>
+        <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <h2>Alerts</h2>
+        <div class="alert alert-success">
+            <strong>Success!</strong> This alert box could indicate a successful or positive action.
+        </div>
+        <div class="alert alert-info">
+            <strong>Info!</strong> This alert box could indicate a neutral informative change or action.
+        </div>
+        <div class="alert alert-warning">
+            <strong>Warning!</strong> This alert box could indicate a warning that might need attention.
+        </div>
+        <div class="alert alert-danger">
+            <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+        </div>
+    </div>
+
+</body>
+
+</html>

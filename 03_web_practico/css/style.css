@@ -1,0 +1,147 @@
+/* La box-sizing permite incluir el relleno y el borde en el ancho y alto total de un elemento. */
+
+* {
+    box-sizing: border-box;
+}
+
+/* incluimos las características del container o cuerpo */
+
+.container {
+    max-width: 1024px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* La cabecera y el pie del cuerpo */
+
+.header, .footer {
+    min-height: 3rem;
+    background-color: #e5e5e5;
+    color: rgb(31, 31, 31);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Al título principal lo centramos, ocupando el ancho total */
+
+.header_h1 {
+    font-size: 1.5rem;
+    width: 10%;
+    flex: 12 1 auto;
+    text-align: center;
+}
+
+/* enlace */
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    background-color: #ddd;
+}
+
+/* Menú */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+li a.active {
+    color: white;
+    background-color: rgb(62, 66, 63);
+}
+
+/* Elementos que componen el menú cuando es mobile y cuando no */
+
+.nav_icon {
+    width: 10%;
+    flex: 1 1 auto;
+}
+
+.img_nav_icon {
+    width: 100%;
+}
+
+.nav_desk {
+    display: none;
+}
+
+.img_wrapper {
+    width: 98%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Características a las imagenes */
+
+.imagen {
+    width: 100%;
+}
+
+/* Definimos diferentes reglas de estilo para diferentes de tipos de pantallas */
+
+@media screen and (min-width: 480px) {
+    .img_wrapper {
+        width: 49%;
+        margin-right: 2rem;
+        margin-left: 2rem;
+        float: left;
+    }
+    .nav_icon {
+        display: none;
+    }
+    .nav_desk {
+        display: flex;
+    }
+    .nav_mobile {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .main {
+        display: flex;
+    }
+    .section_wrapper {
+        width: 10%;
+        flex: 4 1 auto;
+        padding-right: 2rem;
+    }
+    .aside_wrapper {
+        width: 10%;
+        flex: 1 1 auto;
+        padding-left: 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .section_wrapper {
+        display: flex;
+    }
+    .section {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}
